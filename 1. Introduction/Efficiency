@@ -1,0 +1,11 @@
+-Time: it will take to run the program
+-Space: the amount of space the program will require in the computer's memory.
+-An algorithm is essentially a series of steps for solving a problem. Usually, an algorithm takes some kind of input
+ (such as an unsorted list) and then produces the desired output (such as a sorted list).
+-space complexity, how efficient our algorithm is in terms of memory usage
+    * Type	    Storage size
+    * char	    1 byte
+    * bool	    1 byte
+    * int	    4 bytes
+    * float	    4 bytes
+    * double	8 bytes

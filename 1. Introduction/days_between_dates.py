@@ -1,12 +1,36 @@
-# Days old
+# Days between dates
 
 # Given your birthday and the current date, calculate your age in days. Compensate for leap days. Assume that the
 # birthday and current date are correct dates (and no time travel). Simply put, if you were born 1 Jan 2012 and today's
 # date is 2 Jan 2012 you are 1 day old.
 
-# Use Dave's suggestions to finish your daysBetweenDates
-# procedure. It will need to take into account leap years
-# in addition to the correct number of days in each month.
+
+def isLeapYear(year):
+    # if year is divisible by 400 then is_leap_year
+    # else if year is divisible by 100 then not_leap_year
+    # else if year is divisible by 4 then is_leap_year
+    # else not_leap_year
+    if year % 400 == 0:
+        return True
+    if year % 100 == 0:
+        return False
+    if year % 4 == 0:
+        return True
+    return False
+
+
+def daysInMonth(year, month):
+    # if month in (1, 3, 5, 7, 8, 10, 12)
+    if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
+        return 31
+    else:
+        if month == 2:
+            if isLeapYear(year):
+                return 29
+            else:
+                return 28
+        else:
+            return 30
 
 def nextDay(year, month, day):
     """Simple version: assume every month has 30 days"""
@@ -57,6 +81,21 @@ def test():
             print("Test with data:", args, "failed")
         else:
             print("Test case passed!")
+
+
+def myTest():
+    # assertion tests
+    assert daysBetweenDates(2013, 1, 1, 2013, 1, 1) == 0
+    assert daysBetweenDates(2013, 1, 1, 2013, 1, 2) == 1
+    assert nextDay(2013, 1, 1) == (2013, 1, 2)
+    assert nextDay(2013, 4, 30) == (2013, 5, 1)
+    assert nextDay(2012, 12, 31) == (2013, 1, 1)
+    assert nextDay(2013, 2, 28) == (2013, 3, 1)
+    assert nextDay(2013, 9, 30) == (2013, 10, 1)
+    assert nextDay(2012, 2, 28) == (2012, 2, 29)
+    assert daysBetweenDates(2012, 1, 1, 2013, 1, 1) == 366
+    assert daysBetweenDates(2013, 1, 1, 2014, 1, 1) == 365
+    assert daysBetweenDates(2013, 1, 24, 2013, 6, 29) == 156
 
 
 test()

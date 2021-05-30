@@ -17,3 +17,31 @@
     - letters.append('z')
     - print(letters)
         - ['a', 'b', 'c', 'd', 'z']
+    
+
+### Tuples
+- data type for immutable ordered sequences of elements
+- can be indexed and sliced like a list  
+- Tuple unpacking
+    - dimensions = 52, 40, 100
+    - length, width, height = dimensions
+
+
+### Sets: 
+- mutable unordered collections of unique elements
+- add(): add an element to a set (in random order)
+- pop(): remove a random element from a set
+- set(): define an empty set  
+    - ex: fruit = {"apple", "banana", "orange"}  # define a set
+
+
+### Dictionaries:
+- a mutable data type that stores mappings of unique keys to values
+- Dictionaries can have keys of any immutable type, like integers or tuples, not just strings.
+    - dict_example = {key1: value1, key2: value2, key3: value3}  # define a dictionary
+- is: evaluates if both sides have the same identity
+- is not: evaluates if both sides have different identities
+- get(): looks up values in a dictionary; 
+    - key not found: returns None
+- dict(): define an empty dictionary     
+    

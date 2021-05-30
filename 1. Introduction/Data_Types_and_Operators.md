@@ -1,14 +1,14 @@
-Arithmetic operators:
-  
-    - + Addition
-    - - Subtraction
-    - * Multiplication
-    - / Division
-    - % Mod (the remainder after dividing)
-    - ** Exponentiation (note that ^ does not do this operation, as you might have seen in other languages)
-    - // Divides and rounds down to the nearest integer
+### Arithmetic operators:
+  - (+) Addition
+  - (-) Subtraction
+  - (*) Multiplication
+  - (/) Division
+  - (%) Mod (the remainder after dividing)
+  - (**) Exponentiation (note that ^ does not do this operation, as you might have seen in other languages)
+  - (//) Divides and rounds down to the nearest integer
 
-Variables:
+
+### Variables:
 1. Only use ordinary letters, numbers and underscores in your variable names. They can’t have spaces, and need to start
    with a letter or underscore.
 2. You can’t use Python's reserved words, or "keywords," as variable names. There are reserved words in every
@@ -18,7 +18,7 @@ Variables:
 3. The pythonic way to name variables is to use all lowercase letters and underscores to separate words.
 
 
-String methods:
+### String methods:
    - s.islower()
    - s.count('a')
    - s.find('a')
@@ -38,4 +38,3 @@ String methods:
    - join()
    - .split()
 
-   

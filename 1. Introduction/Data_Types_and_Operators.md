@@ -16,3 +16,26 @@ Variables:
    Creating names that are descriptive of the values often will help you avoid using any of these keywords. Here you can
    see a table of Python's reserved words.
 3. The pythonic way to name variables is to use all lowercase letters and underscores to separate words.
+
+
+String methods:
+   - s.islower()
+   - s.count('a')
+   - s.find('a')
+   - capitalize()
+   - center()
+   - count()
+   - endswith()
+   - find()
+   - format()
+   - index()
+   - isalnum()
+   - isalpha()
+   - isdecimal()
+   - islower()
+   - isnumeric()
+   - isupper()
+   - join()
+   - .split()
+
+   

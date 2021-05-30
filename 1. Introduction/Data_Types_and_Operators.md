@@ -38,3 +38,13 @@
    - join()
    - .split()
 
+
+### Debugging code
+   1. Understand common error message
+      - Common Error Messages: 
+         - ZeroDivisionError: division by zero. 
+         - SyntaxError: unexpected EOF while parsing
+         - TypeError: len() takes exactly one argument (0 given)
+   2. Search for your error message, using the web community 
+   3. Use print statements 
+   

@@ -1,4 +1,7 @@
 ### List Methods:
+- Constructor: [] or list()
+- Ordered: Yes 
+- Mutable: Yes  
 - len() returns how many elements are in a list.
 - max() returns maximum elements in the list
     - if number: return maximum number
@@ -17,10 +20,13 @@
     - letters.append('z')
     - print(letters)
         - ['a', 'b', 'c', 'd', 'z']
-    
+
 
 ### Tuples
 - data type for immutable ordered sequences of elements
+- Constructor: ( ) or tuple()
+- Ordered: Yes
+- Mutable: No  
 - can be indexed and sliced like a list  
 - Tuple unpacking
     - dimensions = 52, 40, 100
@@ -29,6 +35,9 @@
 
 ### Sets: 
 - mutable unordered collections of unique elements
+- Constructor: {1,2,3} or set(); {} creates an empty dictionary  
+- Ordered: No
+- Mutable: Yes
 - add(): add an element to a set (in random order)
 - pop(): remove a random element from a set
 - set(): define an empty set  
@@ -37,6 +46,9 @@
 
 ### Dictionaries:
 - a mutable data type that stores mappings of unique keys to values
+- Constructor: { } or dict()
+- Ordered: No
+- Mutable: No; Dictionary itself is mutable, but individual keys must be immutable
 - Dictionaries can have keys of any immutable type, like integers or tuples, not just strings.
     - dict_example = {key1: value1, key2: value2, key3: value3}  # define a dictionary
 - is: evaluates if both sides have the same identity

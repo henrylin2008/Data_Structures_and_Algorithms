@@ -36,6 +36,6 @@ for num in check_prime:
         if num % i == 0:
             print("{} is not a prime number, because {} is a factor of {}".format(num, i, num))
             break
-        if i == num - 1:
+        if i == num - 1:  # check all the possible factors, all the way until num-1
             print("{} is a prime number".format(num))
 

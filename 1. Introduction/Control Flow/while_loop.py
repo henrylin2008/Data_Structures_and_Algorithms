@@ -1,3 +1,5 @@
+# while loops are ideal when the iterations need to continue until a condition is met.
+
 # Quiz: Count By
 # Suppose you want to count from some number start_num by another number count_by until you hit a
 # final number end_num. Use break_num as the variable that you'll change each time through the loop. For simplicity,

@@ -1,0 +1,45 @@
+zip and enumerate are useful built-in functions that can come in handy when dealing with loops.
+
+Zip
+-zip returns an iterator that combines multiple iterables into one sequence of tuples. Each tuple contains the elements
+in that position from all the iterables. For example, printing
+
+list(zip(['a', 'b', 'c'], [1, 2, 3])) would output [('a', 1), ('b', 2), ('c', 3)].
+
+Ex: <br>
+letters = ['a', 'b', 'c']
+nums = [1, 2, 3]
+
+for letter, num in zip(letters, nums):
+    print("{}: {}".format(letter, num))     # [('a', 1), ('b', 2), ('c', 3)]
+
+
+Unzip:
+some_list = [('a', 1), ('b', 2), ('c', 3)]
+letters, nums = zip(*some_list)     # ('a', 'b', 'c') (1, 2, 3)
+
+
+Enumerate
+-enumerate is a built-in function that returns an iterator of tuples containing indices and values of a list. You'll
+often use this when you want the index along with each element of an iterable in a loop.
+
+letters = ['a', 'b', 'c', 'd', 'e']
+for i, letter in enumerate(letters):
+    print(i, letter)
+0 a
+1 b
+2 c
+3 d
+4 e
+
+
+List Comprehensions
+ex:
+capitalized_cities = [city.title() for city in cities]
+
+conditionals:
+if condition:
+squares = [x**2 for x in range(9) if x % 2 == 0]
+
+else condition:
+squares = [x**2 if x % 2 == 0 else x + 3 for x in range(9)]

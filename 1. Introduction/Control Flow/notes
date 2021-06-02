@@ -6,7 +6,7 @@ in that position from all the iterables. For example, printing
 
 list(zip(['a', 'b', 'c'], [1, 2, 3])) would output [('a', 1), ('b', 2), ('c', 3)].
 
-Ex: <br>
+Ex:
 letters = ['a', 'b', 'c']
 nums = [1, 2, 3]
 

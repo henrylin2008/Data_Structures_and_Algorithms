@@ -28,6 +28,7 @@ print_linked_list(head)     # 2, 1, 4, 3, 5
 
 # Step 4. See if you can write the code for the create_linked_list function below
 # -The function should take a Python list of values as input and return the head of a linked list that has those values
+# runtime: O(n^2); due to for and while loops
 def create_linked_list(input_list):
     """
     Function to create a linked list
@@ -45,5 +46,20 @@ def create_linked_list(input_list):
 
             current_node.next = Node(value)
 
+    return head
+
+# better linked list; O(n) time
+def create_linked_list_better(input_list):
+    head = None
+    tail = None
+
+    for value in input_list:
+        if head is None:
+            head = Node(value)
+            tail = head
+
+        else:
+            tail.next = Node(value)
+            tail = tail.next
     return head
 

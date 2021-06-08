@@ -48,7 +48,7 @@ def create_linked_list(input_list):
 
     return head
 
-# better linked list; O(n) time
+# better version of linked list: O(n) time
 def create_linked_list_better(input_list):
     head = None
     tail = None
@@ -63,3 +63,63 @@ def create_linked_list_better(input_list):
             tail = tail.next
     return head
 
+
+# Single Linked Lists:
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, value):
+        if self.head is None:
+            self.head = Node(value)
+            return
+
+        # Move to the tail (the last node)
+        node = self.head
+        while node.next:
+            node = node.next
+
+        node.next = Node(value)
+        return
+
+    def to_list(self):
+        """Converts a linked list to a list"""
+        new_list = []
+
+        node = self.head
+        while node:
+            new_list.append(node.value)
+            node = node.next
+
+        return new_list
+
+
+# Double linked list
+class DoubleNode:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+        self.previous = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def append(self, value):
+        if self.head is None:
+            self.head = DoubleNode(value)
+            self.tail = self.head
+            return
+
+        # Move to the tail (the last node)
+        self.tail.next = DoubleNode(value)
+        self.tail.next.previous = self.tail
+        self.tail = self.tail.next
+        return

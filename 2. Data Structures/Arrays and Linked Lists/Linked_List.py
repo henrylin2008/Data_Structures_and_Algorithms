@@ -100,7 +100,7 @@ class LinkedList:
         return new_list
 
 
-# Double linked list
+# Double Linked Lists
 class DoubleNode:
     def __init__(self, value):
         self.value = value
@@ -123,3 +123,10 @@ class DoublyLinkedList:
         self.tail.next.previous = self.tail
         self.tail = self.tail.next
         return
+
+
+# Circular Linked Lists
+# Circular linked lists occur when the chain of nodes links back to itself somewhere. For example
+# NodeA -> NodeB -> NodeC -> NodeD -> NodeB is a circular list because NodeD points back to NodeB creating a loop
+# NodeB -> NodeC -> NodeD -> NodeB.
+

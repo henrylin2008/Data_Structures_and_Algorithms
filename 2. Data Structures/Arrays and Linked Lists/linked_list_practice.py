@@ -184,3 +184,20 @@ LinkedList.insert = insert
 # print(linked_list.to_list())  # [5, 2, 1, 4, 3]
 # assert linked_list.to_list() == [5, 2, 1, 4, 3], f"list contents: {linked_list.to_list()}"
 
+
+def size(self):
+    """ Return the size or length of the linked list. """
+    size = 0
+    node = self.head
+    while node:
+        size += 1
+        node = node.next
+
+    return size
+
+
+LinkedList.size = size
+
+# Test size function
+# print(linked_list.size())     # 5
+# assert linked_list.size() == 5, f"list contents: {linked_list.to_list()}"

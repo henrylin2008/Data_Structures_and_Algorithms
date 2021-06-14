@@ -144,3 +144,27 @@ while node is not None:
     # This will print 1 2 3 4 5
     print(node.value)
     node = node.next
+
+
+# Computational Complexity
+# Lets start with the computational complexity of merge. Merge takes in two lists. Let's say
+# the lengths of the lists are  𝑁1  and  𝑁2 . Because we assume the inputs are sorted, merge is very efficient. It
+# looks at the first element of each list and adds the smaller one to the returned list. Every time through the loop
+# we are appending one element to the list, so it will take  𝑁1+𝑁2  iterations until we have the whole list.
+#
+# The complexity of flatten is a little more complicated to calculate. Suppose our NestedLinkedList has  𝑁  linked
+# lists and each list's length is represented by  𝑀1,𝑀2,...,𝑀𝑁 .
+#
+# We can represent this recursion as:
+#
+# 𝑚𝑒𝑟𝑔𝑒(𝑀1,𝑚𝑒𝑟𝑔𝑒(𝑀2,𝑚𝑒𝑟𝑔𝑒(...,𝑚𝑒𝑟𝑔𝑒(𝑀𝑁−1,𝑚𝑒𝑟𝑔𝑒(𝑀𝑁,𝑁𝑜𝑛𝑒))))) Let's start from the
+# inside. The inner most merge returns the  𝑛𝑡ℎ  linked list. The next merge does  𝑀𝑁−1+𝑀𝑁  comparisons. The
+# next merge does  𝑀𝑁−2+𝑀𝑁−1+𝑀𝑁  comparisons.
+#
+# Eventually we will do  𝑁  comparisons on all of the  𝑀𝑁  elements. We will do  𝑁−1  comparisons on  𝑀𝑁−1  elements.
+#
+# This can be generalized as:
+#
+# 𝑁
+# ∑𝑛 ∗ 𝑀𝑛
+# n

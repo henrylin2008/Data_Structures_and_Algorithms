@@ -102,3 +102,45 @@ class NestedLinkedList(LinkedList):
 
         # _flatten() is calling itself untill a termination condition is achieved
         return merge(node.value, self._flatten(node.next))  # <-- Both arguments are a simple LinkedList each
+
+
+''' Test merge() function'''
+linked_list = LinkedList(Node(1))
+linked_list.append(3)
+linked_list.append(5)
+
+second_linked_list = LinkedList(Node(2))
+second_linked_list.append(4)
+
+merged = merge(linked_list, second_linked_list)
+node = merged.head
+while node is not None:
+    # This will print 1 2 3 4 5
+    print(node.value)
+    node = node.next
+
+# Lets make sure it works with a None list
+merged = merge(None, linked_list)
+node = merged.head
+while node is not None:
+    # This will print 1 3 5
+    print(node.value)
+    node = node.next
+
+''' Test flatten() function'''
+# Create a nested linked list with one node.
+# The node itself is a simple linked list as 1-->3-->5 created previously
+nested_linked_list = NestedLinkedList(Node(linked_list))
+
+# Append a node (a linked list as 2-->4) to the existing nested linked list
+nested_linked_list.append(second_linked_list)
+
+# Call the `flatten()` function
+flattened = nested_linked_list.flatten()
+
+# Logic to print the flattened list
+node = flattened.head
+while node is not None:
+    # This will print 1 2 3 4 5
+    print(node.value)
+    node = node.next

@@ -78,3 +78,54 @@ def print_linked_list(head):
         print(head.data, end=' ')
         head = head.next
     print()
+
+
+def test_function(test_case):
+    head = test_case[0]
+    solution = test_case[1]
+
+    node_tracker = dict({})
+    node_tracker['nodes'] = list()
+    temp = head
+    while temp:
+        node_tracker['nodes'].append(temp)
+        temp = temp.next
+
+    head = even_after_odd(head)
+    temp = head
+    index = 0
+    try:
+        while temp:
+            if temp.data != solution[index] or temp not in node_tracker['nodes']:
+                print("Fail")
+                return
+            temp = temp.next
+            index += 1
+        print("Pass")
+    except Exception as e:
+        print("Fail")
+
+
+# Test 1
+# arr = [1, 2, 3, 4, 5, 6]
+# solution = [1, 3, 5, 2, 4, 6]
+#
+# head = create_linked_list(arr)
+# test_case = [head, solution]
+# test_function(test_case)  # Pass
+
+
+# Test 2
+# arr = [1, 3, 5, 7]
+# solution = [1, 3, 5, 7]
+#
+# head = create_linked_list(arr)
+# test_case = [head, solution]
+# test_function(test_case)  # Pass
+
+# Test 3
+# arr = [2, 4, 6, 8]
+# solution = [2, 4, 6, 8]
+# head = create_linked_list(arr)
+# test_case = [head, solution]
+# test_function(test_case)  # Pass

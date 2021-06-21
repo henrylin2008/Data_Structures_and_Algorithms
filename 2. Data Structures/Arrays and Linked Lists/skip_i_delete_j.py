@@ -103,3 +103,41 @@ def test_function(test_case):
         print("Pass")
     except Exception as e:
         print("Fail")
+
+
+# Test 1
+# arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+# i = 2
+# j = 2
+# head = create_linked_list(arr)
+# solution = [1, 2, 5, 6, 9, 10]
+# test_case = [head, i, j, solution]
+# test_function(test_case)  # Pass
+
+# Test 2
+# arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+# i = 2
+# j = 3
+# head = create_linked_list(arr)
+# solution = [1, 2, 6, 7, 11, 12]
+# test_case = [head, i, j, solution]
+# test_function(test_case)  # Pass
+
+# Test 3
+# arr = [1, 2, 3, 4, 5]
+# i = 2
+# j = 4
+# head = create_linked_list(arr)
+# solution = [1, 2]
+# test_case = [head, i, j, solution]
+# test_function(test_case)  # Pass
+
+# Test 4
+# arr = [1, 2, 3, 4, 5]
+# i = 2
+# j = 0
+# head = create_linked_list(arr)
+# solution = [1, 2, 3, 4, 5]
+# test_case = [head, i, j, solution]
+# test_function(test_case)  # Pass
+

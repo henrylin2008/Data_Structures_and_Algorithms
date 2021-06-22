@@ -51,7 +51,7 @@ def swap_nodes(head, position_one, position_two):
     current_node = head
     new_head = None
 
-    # LOOP - find out previous and current node at both the positions (indices)
+    # LOOP - find out the positions (indices) of the previous and current node
     while current_node is not None:
 
         # Position_one cannot be equal to position_two,
@@ -155,4 +155,32 @@ def print_linked_list(head):
         print(head.data, end=" ")
         head = head.next
     print()
+
+
+# Test 1
+# arr = [3, 4, 5, 2, 6, 1, 9]
+# head = create_linked_list(arr)
+# left_index = 3
+# right_index = 4
+#
+# test_case = [head, left_index, right_index]
+# updated_head = test_function(test_case)   # Pass
+
+
+# Test #2
+# arr = [3, 4, 5, 2, 6, 1, 9]
+# left_index = 2
+# right_index = 4
+# head = create_linked_list(arr)
+# test_case = [head, left_index, right_index]
+# updated_head = test_function(test_case)   # Pass
+
+
+# Test #3
+# arr = [3, 4, 5, 2, 6, 1, 9]
+# left_index = 0
+# right_index = 1
+# head = create_linked_list(arr)
+# test_case = [head, left_index, right_index]
+# updated_head = test_function(test_case)   # Pass
 

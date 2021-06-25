@@ -66,28 +66,50 @@ def evaluate_post_fix(input_list):
        int: Postfix expression solution
     """
     stack = Stack()
-    for item in input_list:
-        if item == "*":
+    for element in input_list:
+        if element == '*':
             second = stack.pop()
             first = stack.pop()
-            result = second * first
-            stack.push(result)
-        elif item == "/":
+            output = first * second
+            stack.push(output)
+        elif element == '/':
             second = stack.pop()
             first = stack.pop()
-            result = int(second / first)
-            stack.push(result)
-        elif item == "+":
+            output = int(first / second)
+            stack.push(output)
+        elif element == '+':
             second = stack.pop()
             first = stack.pop()
-            result = second + first
-            stack.push(result)
-        elif item == "+":
+            output = first + second
+            stack.push(output)
+        elif element == '-':
             second = stack.pop()
             first = stack.pop()
-            result = second + first
-            stack.push(result)
+            output = first - second
+            stack.push(output)
         else:
-            stack.push(int(item))
-
+            stack.push(int(element))
     return stack.pop()
+
+
+def test_function(test_case):
+    output = evaluate_post_fix(test_case[0])
+    print(output)
+    if output == test_case[1]:
+        print("Pass")
+    else:
+        print("Fail")
+
+
+# test case 1:
+# test_case_1 = [["3", "1", "+", "4", "*"], 16]
+# test_function(test_case_1)    # 16    Pass
+
+# Test case 2:
+# test_case_2 = [["4", "13", "5", "/", "+"], 6]
+# test_function(test_case_2)    # 6     Pass
+
+# Test case 3:
+# test_case_3 = [["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"], 22]
+# test_function(test_case_3)    # 22    Pass
+

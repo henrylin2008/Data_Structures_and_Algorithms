@@ -41,3 +41,28 @@ class Stack:
 
     def is_empty(self):
         return self.num_elements == 0
+
+
+def reverse_stack(stack):
+    """
+    Reverse a given input stack
+
+    Args:
+       stack(stack): Input stack to be reversed
+    Returns:
+       stack: Reversed Stack
+    """
+    holder_stack = Stack()
+    while not stack.is_empty():
+        popped_element = stack.pop()
+        holder_stack.push(popped_element)
+    _reverse_stack_recursion(stack, holder_stack)
+
+
+# recursion to perform reversion of items in the original stack (instead a new stack)
+def _reverse_stack_recursion(stack, holder_stack):
+    if holder_stack.is_empty():
+        return
+    popped_element = holder_stack.pop()
+    _reverse_stack_recursion(stack, holder_stack)
+    stack.push(popped_element)

@@ -89,3 +89,42 @@ def minimum_bracket_reversals(input_string):
         elif first == "{" and second == "{":    # only need to reverse one
             count += 1
     return count
+
+
+def test_function(test_case):
+    input_string = test_case[0]
+    expected_output = test_case[1]
+    output = minimum_bracket_reversals(input_string)
+
+    if output == expected_output:
+        print("Pass")
+    else:
+        print("Fail")
+
+
+# Test 1:
+# test_case_1 = ["}}}}", 2]
+# test_function(test_case_1)  # Pass
+
+
+# Test 2:
+# test_case_2 = ["}}{{", 2]
+# test_function(test_case_2)    # Pass
+
+
+# Test 3:
+# test_case_3 = ["{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}", 13]
+# test_function(test_case_1)    # Pass
+
+
+# Test 4:
+# test_case_4= ["}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{", 2]
+# test_function(test_case_2)    # Pass
+
+# Test 5:
+# test_case_5 = ["}}{}{}{}{}{}{}{}{}{}{}{}{}{}{}", 1]
+# test_function(test_case_3)    # Pass
+
+
+
+

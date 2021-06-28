@@ -46,3 +46,46 @@ class Stack:
 
     def is_empty(self):
         return self.num_elements == 0
+
+
+def minimum_bracket_reversals(input_string):
+    """
+    Calculate the number of reversals to fix the brackets
+
+    Args:
+       input_string(string): Strings to be used for bracket reversal calculation
+    Returns:
+       int: Number of bracket reversals needed
+    """
+    if len(input_string) % 2 == 1:  # if the len of input_string is odd
+        return -1
+
+    stack = Stack()
+    count = 0
+    for bracket in input_string:
+        """automatically remove the balanced brackets that are in the string if they are next to each other and only
+         keep in the stack the unbalanced brackets."""
+        if stack.is_empty():   # if stack is empty, then add the string to the stack
+            stack.push(bracket)
+        else:
+            top = stack.top()   # top of the stack
+            if top != bracket:  # if current bracket is not the same as the top of the stack
+                if top == '{':  # when top of the stack == '{' and current bracket == '}'
+                    stack.pop()  # pop the top out and continue; ex: top of stack "{", and current bracket == "}"
+                    continue
+            stack.push(bracket)  # add the bracket to the stack if current bracket == top of the stack
+
+    ls = list()
+    while not stack.is_empty():
+        """pop top 2 items and compare them, then add the number of time the reverse needed to the count variable"""
+        first = stack.pop()     # top item
+        second = stack.pop()    # second top item
+        ls.append(first)
+        ls.append(second)
+        if first == "}" and second == "}":  # only need to reverse one
+            count += 1
+        elif first == "{" and second == "}":    # need to reverse both two, as they are in a different order
+            count += 2
+        elif first == "{" and second == "{":    # only need to reverse one
+            count += 1
+    return count

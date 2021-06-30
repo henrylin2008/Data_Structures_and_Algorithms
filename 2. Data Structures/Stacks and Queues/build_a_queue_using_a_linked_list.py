@@ -11,6 +11,11 @@
 # With our stack implementation, we saw that linked lists provided a way around this issue—and exactly the same thing
 # is true with queues.
 
+# Time Complexity:
+# When we use `enqueue`, we simply create a new node and add it to the tail of the list. And when we
+# `dequeue` an item, we simply get the value from the head of the list and then shift the `head` variable so that it
+# refers to the next node over.
+# Both of these operations happen in constant time—that is, they have a time-complexity of O(1).
 class Node:
 
     def __init__(self, value):

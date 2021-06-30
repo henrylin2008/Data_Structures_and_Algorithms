@@ -1,8 +1,11 @@
 # Implement a stack using a linked list
+# Time Complexity:
+# pop and push have a time complexity of O(1).
 class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
+
 
 class Stack:
     def __init__(self):
@@ -20,7 +23,7 @@ class Stack:
 
         self.num_elements += 1
 
-    def pop(self):    # Time: O(1)
+    def pop(self):  # Time: O(1)
         if self.is_empty():
             return
 
@@ -34,3 +37,27 @@ class Stack:
 
     def is_empty(self):
         return self.num_elements == 0
+
+
+# Tests
+# # Setup
+# stack = Stack()
+# stack.push(10)
+# stack.push(20)
+# stack.push(30)
+# stack.push(40)
+# stack.push(50)
+
+# # Test size
+# print("Pass" if (stack.size() == 5) else "Fail")    # Pass
+#
+# # Test pop
+# print("Pass" if (stack.pop() == 50) else "Fail")    # Pass
+#
+# # Test push
+# stack.push(60)
+# print("Pass" if (stack.pop() == 60) else "Fail")    # Pass
+# print("Pass" if (stack.pop() == 40) else "Fail")    # Pass
+# print("Pass" if (stack.pop() == 30) else "Fail")    # Pass
+# stack.push(50)
+# print("Pass" if (stack.size() == 3) else "Fail")    # Pass

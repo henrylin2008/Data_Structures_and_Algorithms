@@ -13,6 +13,9 @@ class Stack:
         self.num_elements = 0
 
     def push(self, value):  # Time: O(1)
+        # create a new Node object with this value and link it to the list
+        # add new items at the head of the stack, not the tail!
+        # Once a new node is added, then increment num_elements
         new_node = Node(value)
         # if stack is empty
         if self.head is None:
@@ -24,6 +27,10 @@ class Stack:
         self.num_elements += 1
 
     def pop(self):  # Time: O(1)
+        # Check if the stack is empty and, if it is, return None
+        # Get the value from the head node and put it in a local variable
+        # Move the head so that it refers to the next item in the list
+        # Return the value we got earlier
         if self.is_empty():
             return
 

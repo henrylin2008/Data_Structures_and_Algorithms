@@ -93,3 +93,28 @@ def reverse_queue(queue):
     #       2 (s2)             3 (s3) (n2)             3 (n2)
     #       3 (s3)             2 (s2) (n3)             2 (n3)
     #       4 (s4) tail        1 (s1) (n4)             1 (n4)  tail
+
+
+def test_function(test_case):
+    queue = Queue()
+    for num in test_case:
+        queue.enqueue(num)
+
+    reverse_queue(queue)
+    index = len(test_case) - 1
+    while not queue.is_empty():
+        removed = queue.dequeue()
+        if removed != test_case[index]:
+            print("Fail")
+            return
+        else:
+            index -= 1
+    print("Pass")
+
+
+# Test cases:
+# test_case_1 = [1, 2, 3, 4]
+# test_function(test_case_1)  # Pass
+#
+# test_case_2 = [1]
+# test_function(test_case_2)  # Pass

@@ -71,3 +71,25 @@ class Queue:
 
     def is_empty(self):
         return self.num_elements == 0
+
+def reverse_queue(queue):
+    """
+    Reverse the input queue
+
+    Args:
+       queue(queue),str2(string): Queue to be reversed
+    Returns:
+       queue: Reversed queue
+    """
+    stack = Stack()
+    while not queue.is_empty():     # when queue is not empty
+        stack.push(queue.dequeue())     # add first item of queue to the stack
+
+    while not stack.is_empty():     # when (temp) stack is not empty
+        queue.enqueue(stack.pop())      # add popped out/top item to the queue
+    # ex: steps in ()
+    #    given queue          temp stack              return queue
+    #       1 (s1) head        4 (s4) (n1) top         4 (n1) head
+    #       2 (s2)             3 (s3) (n2)             3 (n2)
+    #       3 (s3)             2 (s2) (n3)             2 (n3)
+    #       4 (s4) tail        1 (s1) (n4)             1 (n4)  tail

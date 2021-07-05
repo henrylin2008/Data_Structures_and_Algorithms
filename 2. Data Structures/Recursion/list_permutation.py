@@ -28,3 +28,37 @@
 Args: myList: list of items to be permuted
 Returns: compound list: list of permutation with each permuted item being represented by a list
 """
+import copy  # We will use `deepcopy()` function from the `copy` module
+
+
+def permute(input_list):
+    # a compound list
+    final_compound_list = []  # compoundList to be returned
+
+    # Termination / Base condition
+    if len(input_list) == 0:
+        final_compound_list.append([])
+
+    else:
+        first_element = input_list[0]  # Pick one element to be permuted
+        after_first = slice(1, None)  # `after_first` is an object of type 'slice' class
+        rest_list = input_list[after_first]  # convert the `slice` object into a list
+
+        # Recursive function call
+        sub_compound_list = permute(rest_list)
+
+        # Iterate through all lists of the compoundList returned from previous call
+        for a_list in sub_compound_list:
+            # Permuted the `first_element` at all positions 0, 1, 2 ... len(a_list) in each iteration
+            for j in range(0, len(a_list) + 1):
+                # A normal copy/assignment will change a_list[j] element
+                b_list = copy.deepcopy(a_list)
+
+                # A new list with size +1 as compared to a_list
+                # is created by inserting the `first_element` at position j in b_list
+                b_list.insert(j, first_element)
+
+                # Append the newly created list to the final_compound_list
+                final_compound_list.append(b_list)
+
+    return final_compound_list

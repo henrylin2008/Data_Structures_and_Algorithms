@@ -69,3 +69,21 @@ def test_function(test_case):
         print("Fail")
 
 
+# Test 1
+# string = 'ab'
+# solution = ['ab', 'ba']
+# test_case = [string, solution]
+# test_function(test_case)
+#
+# # Test 2
+# string = 'abc'
+# output = ['abc', 'bac', 'bca', 'acb', 'cab', 'cba']
+# test_case = [string, output]
+# test_function(test_case)
+#
+# # Test 3
+# string = 'abcd'
+# output = ['abcd', 'bacd', 'bcad', 'bcda', 'acbd', 'cabd', 'cbad', 'cbda', 'acdb', 'cadb', 'cdab', 'cdba', 'abdc',
+#           'badc', 'bdac', 'bdca', 'adbc', 'dabc', 'dbac', 'dbca', 'adcb', 'dacb', 'dcab', 'dcba']
+# test_case = [string, output]
+# test_function(test_case)

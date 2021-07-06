@@ -38,19 +38,27 @@ def return_permutations(string, index):
     output = list()
 
     # Termination / Base condition
-    if index >= len(string):
+    if index >= len(string):    # when index is out of the range
         return [""]
 
     # Recursive function call
-    small_output = return_permutations(string, index + 1)
+    small_output = return_permutations(string, index + 1)   # output from last recursive call
+
     # Pick a character
     current_char = string[index]
     # Iterate over each sub-string available in the list returned from previous call
     for subString in small_output:
         # place the current character at different indices of the sub-string
+        # ex: 'abc'
+        # 1st loop: subString: ""; current_char: "c"
+        # 2nd loop: subString: "c"; current_char: "b"
+        # 3rd loop: subString: "bc"; current_char: "a"
         for index in range(len(small_output[0]) + 1):
             # Make use of the sub-string of previous output, to create a new sub-string.
             new_sub_string = subString[0: index] + current_char + subString[index:]
+            # 1st loop: new_sub_string: "c"
+            # 2nd loop: new_sub_string: "bc", "cb"
+            # 3rd loop: new_sub_string: "abc", "bac", "bca", "acb", "cab", "cba"
             output.append(new_sub_string)
     return output
 

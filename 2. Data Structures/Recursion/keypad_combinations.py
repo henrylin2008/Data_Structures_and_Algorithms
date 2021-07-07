@@ -72,3 +72,38 @@ def keypad(num):
             output.append(new_item)
 
     return output  # returns a LIST of strings
+
+
+def test_keypad(input, expected_output):
+    if sorted(keypad(input)) == expected_output:
+        print("Yay. We got it right.")
+    else:
+        print("Oops! That was incorrect.")
+
+
+# Test cases
+# Base case: list with empty string
+# input = 0
+# expected_output = [""]
+# test_keypad(input, expected_output)
+#
+# # Example case
+# input = 23
+# expected_output = sorted(["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"])
+# test_keypad(input, expected_output)
+#
+# # Example case
+# input = 32
+# expected_output = sorted(["da", "db", "dc", "ea", "eb", "ec", "fa", "fb", "fc"])
+# test_keypad(input, expected_output)
+#
+# # Example case
+# input = 8
+# expected_output = sorted(["t", "u", "v"])
+# test_keypad(input, expected_output)
+#
+# input = 354
+# expected_output = sorted(["djg", "ejg", "fjg", "dkg", "ekg", "fkg", "dlg", "elg", "flg", "djh", "ejh", "fjh", "dkh",
+#                           "ekh", "fkh", "dlh", "elh", "flh", "dji", "eji", "fji", "dki", "eki", "fki", "dli", "eli",
+#                           "fli"])
+# test_keypad(input, expected_output)

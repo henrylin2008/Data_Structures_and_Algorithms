@@ -63,4 +63,54 @@
 #    - Step 3: You had num_disks - 1 disks available on the auxiliary, as a result of Step 1. Move num_disks - 1 from
 #              auxiliary to destination
 
+def tower_of_hanoi_soln(num_disks, source, auxiliary, destination):
+    if num_disks == 0:
+        return
 
+    if num_disks == 1:
+        print("{} {}".format(source, destination))
+        return
+
+    tower_of_hanoi_soln(num_disks - 1, source, destination, auxiliary)
+    print("{} {}".format(source, destination))
+    tower_of_hanoi_soln(num_disks - 1, auxiliary, source, destination)
+
+def tower_of_hanoi(num_disks):
+    tower_of_hanoi_soln(num_disks, 'S', 'A', 'D')
+
+
+# test cases
+# num_disks = 2
+#
+#   solution
+#           S A
+#           S D
+#           A D
+# num_disks = 3
+#
+#   solution
+#           S D
+#           S A
+#           D A
+#           S D
+#           A S
+#           A D
+#           S D
+# num_disks = 4
+#
+#   solution
+#           S A
+#           S D
+#           A D
+#           S A
+#           D S
+#           D A
+#           S A
+#           S D
+#           A D
+#           A S
+#           D S
+#           A D
+#           S A
+#           S D
+#           A D

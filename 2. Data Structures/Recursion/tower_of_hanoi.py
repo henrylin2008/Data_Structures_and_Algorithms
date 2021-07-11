@@ -70,9 +70,11 @@ def tower_of_hanoi_soln(num_disks, source, auxiliary, destination):
     if num_disks == 1:
         print("{} {}".format(source, destination))
         return
-
+    # if n disks, move top n-1 disks from source to middle rod
     tower_of_hanoi_soln(num_disks - 1, source, destination, auxiliary)
     print("{} {}".format(source, destination))
+    # move bottom disk from the original source rod to destination, then move rest disks in the middle rod
+    # (source) to the destination
     tower_of_hanoi_soln(num_disks - 1, auxiliary, source, destination)
 
 def tower_of_hanoi(num_disks):

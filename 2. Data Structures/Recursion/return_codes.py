@@ -21,6 +21,13 @@
 #
 # Note: you can assume that the input number will not contain any 0s
 
+# Logic:
+# -You can first break the number like: 1, 23 where 1 represents a and 23 represents w i.e it will return aw
+# -You can also break the number as 1, 2, 3, where 1 represents a, 2 represents b and 3 will represents c, so, it will
+# return abc.
+# -Also, You can break it as 12, 3, where 12 represents l and 3 represents c i.e it will return lc.
+#
+# So, for number = 123the output will be codes_possible = ["aw", "abc", "lc"].
 
 def get_alphabet(number):
     """

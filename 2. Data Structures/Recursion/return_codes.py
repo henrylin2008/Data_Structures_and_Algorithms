@@ -39,7 +39,7 @@ def all_codes(number):
     # calculation for two right-most digits e.g. if number = 1123, this calculation is meant for 23
     remainder = number % 100
     output_100 = list()
-    # get the letter that's >= 10 and <= 26, ex: j(10) <--> z(26)
+    # if 2 right-most digits <= 26 (ex: 123->23, 112->12) & recursive calls on the number
     if remainder <= 26 and number > 9:
 
         # get all codes for the remaining number

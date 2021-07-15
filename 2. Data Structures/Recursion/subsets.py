@@ -51,3 +51,19 @@ def return_subsets(arr, index):
         current.extend(element)
         output.append(current)
     return output
+
+
+def test_function(test_case):
+    arr = test_case[0]
+    solution = test_case[1]
+
+    output = subsets(arr)
+
+    output.sort()
+    solution.sort()
+
+    if output == solution:
+        print("Pass")
+    else:
+        print("Fail")
+

@@ -13,3 +13,21 @@
 #   2 steps + 1 step
 #   3 steps
 # n == 5 then answer = 13
+
+
+def staircase(n):
+    # Base Case - What holds true for minimum steps possible i.e., n == 0, 1, 2 or 3? Return the number of ways the
+    # child can climb n steps.
+    # Recursive Step - Split the solution into base case if n > 3.
+    if n <= 0:
+        return 1
+
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    elif n == 3:
+        return 4
+
+    return staircase(n-1) + staircase(n-2) + staircase(n-3)
+

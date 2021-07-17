@@ -1,10 +1,11 @@
 # Depth First Search
-# Pre-order traversal
+# DFS ex:
 #               apple
 #             /       \
 #          banana     cherry
 #          /
 #        dates
+#
 # Pre-Order: visit the root node, traverse left subtree, then traverse right subtree
 #            ['apple', 'banana', 'dates', 'cherry']
 # In-Order: traverse left subtree, visit the root node, then traverse right subtree

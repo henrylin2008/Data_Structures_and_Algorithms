@@ -145,6 +145,7 @@ visited_right: {self.visited_right}
         """
         return s
 
+
 # Pre order with a stack: keep going down the left node/s until no more child node, then going back up a level to
 # the parent node and visit the right node, recursive check the left and right nodes, until there's no more child
 # nodes.
@@ -201,7 +202,7 @@ pre_order_with_stack(tree)  # ['apple', 'banana', 'dates', 'cherry']
 
 # pre-order traversal with recursion
 def pre_order(tree):
-    visit_order = list()    # list to be return
+    visit_order = list()  # list to be return
     root = tree.get_root()
 
     def traverse(node):
@@ -214,8 +215,49 @@ def pre_order(tree):
             traverse(node.get_right_child())
 
     traverse(root)
-
     return visit_order
 
 
-pre_order(tree)     # ['apple', 'banana', 'dates', 'cherry']
+pre_order(tree)  # ['apple', 'banana', 'dates', 'cherry']
+
+
+# In-order: traverse left subtree, visit the root, then traverse right subtree
+def in_order(tree):
+    visit_order = list()  # list to be return
+    root = tree.get_root()
+
+    def traverse(node):
+        if node:
+            # traverse left
+            traverse(node.get_left_child())
+            # visit
+            visit_order.append(node.get_value())
+            # traverse right
+            traverse(node.get_right_child())
+
+    traverse(root)
+    return visit_order
+
+
+in_order(tree)  # ['dates', 'banana', 'apple', 'cherry']
+
+
+# Post-order: traverse left subtree, right subtree, then visit the root node
+def post_order(tree):
+    visit_order = list()  # list to be return
+    root = tree.get_root()
+
+    def traverse(node):
+        if node:
+            # traverse left
+            traverse(node.get_left_child())
+            # traverse right
+            traverse(node.get_right_child())
+            # visit
+            visit_order.append(node.get_value())
+
+    traverse(root)
+    return visit_order
+
+
+post_order(tree)  # ['dates', 'banana', 'cherry', 'apple']

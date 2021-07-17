@@ -5,8 +5,12 @@
 #          banana     cherry
 #          /
 #        dates
-# Pre-order: apple, banana, dates, cherry
-# this code makes the tree that we'll traverse
+# Pre-Order: visit the root node, traverse left subtree, then traverse right subtree
+#            ['apple', 'banana', 'dates', 'cherry']
+# In-Order: traverse left subtree, visit the root node, then traverse right subtree
+#           ['dates', 'banana', 'apple', 'cherry']
+# Post-Order: traverse left subtree, right subtree, then visit the root node
+#             ['dates', 'banana', 'cherry', 'apple']
 
 class Node(object):
 

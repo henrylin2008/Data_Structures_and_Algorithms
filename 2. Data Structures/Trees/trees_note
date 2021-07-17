@@ -1,0 +1,31 @@
+DFS: Depth First Search
+
+            D
+          /   \
+        B       E
+      /   \       \
+     A     C        F
+
+* Pre-Order: keep traversing from a parent to a leaf (keep traverse the left child, then right child)
+    - D, B, A, C, E, F
+* In-Order: from left to right
+    - A, B, C, D, E, F
+* Post-order: check off all of the descendant node/s before moving to the parent node
+    - A, C, B, F, E, D
+
+Binary Tree:
+-Search: O(n)
+-Delete: O(n) (worst)
+-Insert: O(n) (worst)
+
+
+Binary Search Tree (BST): every node on left is smaller than nodes on the right
+
+Unbalanced BST: (worst case BST)
+    5
+      \
+       10
+         \
+          15
+            \
+             20

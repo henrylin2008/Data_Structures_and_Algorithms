@@ -55,6 +55,13 @@ class Tree:
         return self.root
 
 
+# create a tree and add some nodes
+tree = Tree("apple")
+tree.get_root().set_left_child(Node("banana"))
+tree.get_root().set_right_child(Node("cherry"))
+tree.get_root().get_left_child().set_left_child(Node("dates"))
+
+
 # Define a stack to help keep track of the tree nodes
 class Stack:
     def __init__(self):
@@ -188,3 +195,27 @@ stack:
             """)
     return visit_order
 
+
+pre_order_with_stack(tree)  # ['apple', 'banana', 'dates', 'cherry']
+
+
+# pre-order traversal with recursion
+def pre_order(tree):
+    visit_order = list()    # list to be return
+    root = tree.get_root()
+
+    def traverse(node):
+        if node:
+            # visit
+            visit_order.append(node.get_value())
+            # traverse left
+            traverse(node.get_left_child())
+            # traverse right
+            traverse(node.get_right_child())
+
+    traverse(root)
+
+    return visit_order
+
+
+pre_order(tree)     # ['apple', 'banana', 'dates', 'cherry']

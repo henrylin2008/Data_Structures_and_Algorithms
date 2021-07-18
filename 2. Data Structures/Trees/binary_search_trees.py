@@ -92,6 +92,59 @@ class Tree:
         else:       # new_node > node
             return 1    # traverse right
 
+    """
+      define insert with loop (either this one or the recursion methods)
+      """
+    def insert_with_loop(self, new_value):
+        new_node = Node(new_value)
+        node = self.get_root()
+        if node is None:  # if root is empty
+            self.root = new_node
+            return
+
+        while True:
+            comparison = self.compare(node, new_node)
+            if comparison == 0:
+                node.set_value(new_node.get_value())  # override with new node's value
+                break
+            elif comparison == -1:  # go left
+                if node.has_left_child():
+                    node = node.get_left_child()
+                else:
+                    node.set_left_child(new_node)
+                    break  # inserted node, stop looping
+            else:
+                if node.has_right_child():
+                    node = node.get_right_child()
+                else:
+                    node.set_right_child(new_node)
+                    break
+
+    """
+    Insert with recursion
+    """
+    def insert_with_recursion(self, value):
+        if self.get_root() is None:
+            self.set_root(value)
+            return
+
+        self.insert_recursively(self.get_root(), Node(value))
+
+    def insert_recursively(self, node, new_node):
+        comparison = self.compare(node, new_node)
+        if comparison == 0:
+            node.set_value(new_node.get_value())
+        elif comparison == -1:
+            if node.has_left_child():
+                self.insert_recursively(node.get_left_child(), new_node)
+            else:
+                node.set_left_child(new_node)
+        else:  # comparison == 1, traverse right
+            if node.has_right_child():
+                self.insert_recursively(node.get_right_child(), new_node)
+            else:
+                node.set_right_child(new_node)
+
     def __repr__(self):
         level = 0
         q = Queue()

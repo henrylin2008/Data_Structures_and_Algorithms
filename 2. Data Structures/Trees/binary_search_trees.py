@@ -145,6 +145,24 @@ class Tree:
             else:
                 node.set_right_child(new_node)
 
+    def search(self, value):
+        node = self.get_root()  # root node
+        search_node = Node(value)   # search node
+        while True:
+            comparison = self.compare(node, search_node)
+            if comparison == 0:
+                return True
+            elif comparison == -1:    # less than the current node
+                if node.has_left_child():   # if node has left child
+                    node = node.get_left_child()    # traverse left child
+                else:   # if no left child
+                    return False
+            else:   # greater than the current node
+                if node.has_right_child():   # if node has right child
+                    node = node.get_right_child()   # traverse right child
+                else:
+                    return False
+
     def __repr__(self):
         level = 0
         q = Queue()

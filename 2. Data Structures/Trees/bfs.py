@@ -106,3 +106,20 @@ print(q)
 # apple
 # _________________
 # <dequeue here>
+
+
+def bfs(tree):
+    q = Queue()  # queue
+    visit_order = list()    # visit_order
+    node = tree.get_root()  # start at root
+    q.enq(node)     # add root to queue
+    while len(q) > 0:   # while queue is not empty
+        node = q.deq()  # dequeue the node
+        visit_order.append(node)    # visit that node
+        if node.has_left_child():   # add left child if exists
+            q.enq(node.get_left_child())
+        if node.has_right_child():  # add right child if exists
+            q.enq(node.get_right_child())
+    return visit_order      # [Node(apple), Node(banana), Node(cherry), Node(dates)]
+
+

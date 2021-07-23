@@ -90,3 +90,22 @@ def longest_consecutive_subsequence(input_list):
 
     # return a NEW list starting from `start_element` to `(start_element + max_length)`
     return [element for element in range(start_element, start_element + max_length)]
+
+
+def test_function(test_case):
+    output = longest_consecutive_subsequence(test_case[0])
+    if output == test_case[1]:
+        print("Pass")
+    else:
+        print("Fail")
+
+
+# Test cases
+test_case_1 = [[5, 4, 7, 10, 1, 3, 55, 2], [1, 2, 3, 4, 5]]
+test_function(test_case_1)  # Pass
+
+test_case_2 = [[2, 12, 9, 16, 10, 5, 3, 20, 25, 11, 1, 8, 6 ], [8, 9, 10, 11, 12]]
+test_function(test_case_2)  # Pass
+
+test_case_3 = [[0, 1, 2, 3, 4], [0, 1, 2, 3, 4]]
+test_function(test_case_3)  # Pass

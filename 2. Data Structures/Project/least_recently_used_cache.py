@@ -29,16 +29,40 @@ class LRU_Cache(object):
 
     def __init__(self, capacity):
         # Initialize class variables
+        self.cache = {}
         self.capacity = capacity
-        pass
 
     def get(self, key):
         # Retrieve item from provided key. Return -1 if nonexistent.
-        pass
+        return -1
 
     def set(self, key, value):
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item.
-        pass
+        return -1
+
+
+class DoubleNode:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+        self.previous = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None        # Least recently used - tail of the DoubleLinkedList
+        self.tail = None        # Most recently used - head of
+
+    def append(self, value):
+        if self.head is None:
+            self.head = DoubleNode(value)
+            self.tail = self.head
+            return
+
+        # Move to the tail (the last node)
+        self.tail.next = DoubleNode(value)
+        self.tail.next.previous = self.tail
+        self.tail = self.tail.next
+        return
 
 
 our_cache = LRU_Cache(5)

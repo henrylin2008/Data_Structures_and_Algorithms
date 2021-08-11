@@ -21,13 +21,13 @@ Print a message:
 def main():
     phone_number = []
 
-    for data in range(len(texts)):
+    for text in range(len(texts)):
         for number in range(2):
-            phone_number.append(texts[data][number])  # retrieving sending/receiving phone numbers from texts file
+            phone_number.append(texts[text][number])  # retrieving sending/receiving phone numbers from texts file
 
-    for data in range(len(calls)):
+    for call in range(len(calls)):
         for number in range(2):
-            phone_number.append(calls[data][number])  # retrieving calling/receiving phone numbers from calls file
+            phone_number.append(calls[call][number])  # retrieving calling/receiving phone numbers from calls file
 
     unique_numbers = len(set(phone_number))
     print(f'There are {unique_numbers} different telephone phone_number in the records.')

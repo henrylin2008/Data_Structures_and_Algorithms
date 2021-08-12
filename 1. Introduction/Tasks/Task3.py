@@ -44,3 +44,41 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+# def bangalore_calls():
+#     pass
+#     call from (080)xxxxxxx
+#     # 2. fixed lines: (0
+#     # 3. Mobile numbers: 7/8/9xxx xxxx
+#     # 4. Telemarketers: 140
+
+# Part A
+area_codes = []
+
+for call in range(len(calls)):
+    calling_number = calls[call][0]
+    receiving_number = calls[call][1]
+
+    if calling_number.startswith('(080)'):
+        if receiving_number.startswith('(0'):   # case 1: fixed lines start with (0
+            open_bracket_pos = receiving_number.find('(')
+            close_bracket_pos = receiving_number.find(')')
+            prefix = receiving_number[open_bracket_pos:close_bracket_pos+1]
+            area_codes.append(prefix)
+
+        elif receiving_number.startswith(('7', '8', '9')):    # case 2: mobile numbers start with 7 or 8 or 9
+            area_codes.append(receiving_number[0:4])
+
+        elif receiving_number.startswith('140'):    # case 3: telemarketers
+            area_codes.append('140')
+
+unique_area_codes = sorted(set(area_codes))
+print('The numbers called by people in Bangalore have codes:')
+for area_code in unique_area_codes:     # print all unique area codes in lexicographic order
+    print(area_code)
+
+
+# def ratio(call):
+#     pass
+#     # % of calls from (080) to (080)
+#     # "<percentage> percent of calls from fixed lines in Bangalore are calls
+#     # to other fixed lines in Bangalore."

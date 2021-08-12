@@ -44,12 +44,6 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
-# def bangalore_calls():
-#     pass
-#     call from (080)xxxxxxx
-#     # 2. fixed lines: (0
-#     # 3. Mobile numbers: 7/8/9xxx xxxx
-#     # 4. Telemarketers: 140
 
 # Part A
 area_codes = []
@@ -77,8 +71,17 @@ for area_code in unique_area_codes:     # print all unique area codes in lexicog
     print(area_code)
 
 
-# def ratio(call):
-#     pass
-#     # % of calls from (080) to (080)
-#     # "<percentage> percent of calls from fixed lines in Bangalore are calls
-#     # to other fixed lines in Bangalore."
+# Part B:
+
+call_count = 0
+total_calls = len(area_codes)
+
+for call in range(len(calls)):
+    calling_number = calls[call][0]
+    receiving_number = calls[call][1]
+
+    if calling_number.startswith('(080)'):
+        if receiving_number.startswith('(080)'):
+            call_count += 1  # increase the count
+fixed_line_ratio = round(call_count/total_calls*100, 2)
+print(f'{fixed_line_ratio} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.')

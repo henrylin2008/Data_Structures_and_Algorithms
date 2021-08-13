@@ -25,3 +25,19 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+text_senders = set([text[0] for text in texts])
+text_receivers = set([text[1] for text in texts])
+call_senders = set([call[0] for call in calls])
+call_receivers = set([call[1] for call in calls])
+
+telemarketers = []  # possible telemarketers
+for call_sender in call_senders:
+    if (call_sender not in call_receivers) and (call_sender not in text_senders) and \
+            (call_sender not in text_senders):
+        telemarketers.append(call_sender)
+
+telemarketers.sort()    # sorting the telemarketers list in lexicographic order
+
+print("These numbers could be telemarketers: ")
+for telemarketer in telemarketers:
+    print(telemarketer)

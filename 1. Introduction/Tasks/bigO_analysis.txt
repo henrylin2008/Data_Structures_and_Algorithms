@@ -18,8 +18,11 @@ data, which is a constant time O(1), the rest of if/else statements are O(6n); O
 Task 3:
 Worst Case Big-O Notation: O(n log n)
 The main reason that we have O(n log n) runtime is because of sorting operations, the rest of code are running for loops
-and if/else statements to get the calls information and matching conditions, which resulted in O(3n) + 6 * O(1) = O(n);
+and if/else statements to get the calls information and matching conditions, which resulted in O(3n) + 6 * O(n) = O(n);
 O(n log n) + O(n) = O(n log n)
 
 Task 4:
-Worst Case Big-O Notation: O(
+Worst Case Big-O Notation: O(n log n)
+This is similar to Task 3, where the main reason of getting this runtime is because of the sorting operations. The rest
+operations include 6 for loops (O(2n)), an if statement (O(n)), which would be sum up to O(3n) --> O(n).
+O(n log n) + O(n) = O(n log n)

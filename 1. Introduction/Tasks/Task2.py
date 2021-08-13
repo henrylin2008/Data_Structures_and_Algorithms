@@ -30,21 +30,11 @@ for call in calls:
     duration = int(call[3])
 
     # adding phone numbers along with the call duration into phone_dict
-    if call[0] not in phone_dict:
-        phone_dict[call[0]] = duration
-    else:
-        phone_dict[call[0]] += duration
-    if call[1] not in phone_dict:
-        phone_dict[call[1]] = duration
-    else:
-        phone_dict[call[1]] += duration
+    phone_dict[call[0]] += duration
+    phone_dict[call[1]] += duration
 
-    # finding the longest call time and its phone number
-    if phone_dict[call[0]] > max_call_time:
-        max_call_time = phone_dict[call[0]]
-        max_phone_num = call[0]
-    if phone_dict[call[1]] > max_call_time:
-        max_call_time = phone_dict[call[1]]
-        max_phone_num = call[1]
+# finding the longest call time and its phone number
+max_call_time = max(phone_dict, key=lambda k: phone_dict[k])
+max_phone_num = phone_dict[max_call_time]
 
 print(f"{max_phone_num} spent the longest time, {max_call_time} seconds, on the phone during September 2016.")

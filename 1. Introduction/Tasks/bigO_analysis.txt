@@ -1,0 +1,25 @@
+Big O run time analysis:
+
+
+Task 0:
+Worst Case Big-O Notation: O(1)
+Instant access to an item in a list, no loops in the solution
+
+Task 1:
+Worst Case Big-O Notation: O(n)
+2 for loops to retrieve all telephone numbers: each for loop is O(n), 2 for loops is O(2n); drop the constant in
+the Big-O notation, which resulted in O(n)
+
+Task 2:
+Worst Case Big-O Notation: O(n)
+one for loop to retrieve all the information about the calls, which is O(n), and the dictionary to access its stored
+data, which is a constant time O(1), the rest of if/else statements are O(6n); O(n) + O(1) + O(6n) = O(7n + 1) --> O(n)
+
+Task 3:
+Worst Case Big-O Notation: O(n log n)
+The main reason that we have O(n log n) runtime is because of sorting operations, the rest of code are running for loops
+and if/else statements to get the calls information and matching conditions, which resulted in O(3n) + 6 * O(1) = O(n);
+O(n log n) + O(n) = O(n log n)
+
+Task 4:
+Worst Case Big-O Notation: O(

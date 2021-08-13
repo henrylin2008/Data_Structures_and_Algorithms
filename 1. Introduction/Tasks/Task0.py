@@ -19,12 +19,7 @@ Print messages:
 "First record of texts, <incoming number> texts <answering number> at time <time>"
 "Last record of calls, <incoming number> calls <answering number> at time <time>, lasting <during> seconds"
 """
-def main():
 
-    print(f'First record of texts, {calls[0][0]} texts {calls[0][1]} at time {calls[0][2]}')
-    print(f'Last record of calls, {calls[len(calls) - 1][0]} calls {calls[len(calls) - 1][1]} at time '
-          f'{calls[len(calls) - 1][2]}, lasting {calls[len(calls) - 1][3]} seconds')
-
-
-if __name__ == '__main__':
-    main()
+print(f'First record of texts, {texts[0][0]} texts {texts[0][1]} at time {texts[0][2]}')
+print(f'Last record of calls, {calls[len(calls) - 1][0]} calls {calls[len(calls) - 1][1]} at time '
+      f'{calls[len(calls) - 1][2]}, lasting {calls[len(calls) - 1][3]} seconds')

@@ -121,7 +121,7 @@ class Tree:
                     break
 
     """
-    Insert with recursion
+    Insert with the recursion (this function or insert with the loop (above))
     """
     def insert_with_recursion(self, value):
         if self.get_root() is None:
@@ -150,7 +150,7 @@ class Tree:
         search_node = Node(value)   # search node
         while True:
             comparison = self.compare(node, search_node)
-            if comparison == 0:
+            if comparison == 0:     # if node and search_node are equal, return True
                 return True
             elif comparison == -1:    # less than the current node
                 if node.has_left_child():   # if node has left child
@@ -162,6 +162,51 @@ class Tree:
                     node = node.get_right_child()   # traverse right child
                 else:
                     return False
+
+    def min_value(self):
+        current = self.get_root()
+        while current.left is not None:
+            current = current.left
+        return current
+
+    def delete(self, value):
+        # case 1. if node is a leaf, simply remove from the tree
+        # case 2. if node has only one child, copy the child to the node and delete the child
+        # case 3. if node has 2 children, find inorder successor of the node (left, root, right)
+        node = self.get_root()
+        delete_node = Node(value)
+        if node is None:
+            self.root = node
+            return
+
+        while True:
+            comparison = self.compare(node, delete_node)
+            if comparison == 0:
+                if node.has_left_child:
+                    temp = node.get_left_child()
+                    node = None
+                    return temp
+                elif node.has_right_child():
+                    temp = node.get_right_child()
+                    node = None
+                    return temp
+                temp = self.min_value(node.get_right_child)
+                node = temp
+                node.get_right_child = delete_node(node.get_right_child, temp)
+
+            elif comparison == -1:  # if the value is smaller than the root's value
+                if node.has_left_child():
+                    node = node.get_left_child()
+                    self.delete(node, delete_node)
+                else:
+                    return False
+            else:   # if the value is greater than the root's value
+                if node.has_right_child():
+                    node = node.get_right_child()
+                    self.delete(node.get_value, delete_node)
+                else:
+                    return False
+            return node
 
     def __repr__(self):
         level = 0

@@ -29,7 +29,7 @@ class LRU_Cache(object):
 
     def __init__(self, capacity):
         # Initialize class variables
-        self.cache = {}
+        self.cache = {}             # using a dictionary to store key and value
         self.capacity = capacity
 
     def get(self, key):

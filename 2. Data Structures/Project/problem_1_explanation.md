@@ -1,7 +1,7 @@
-To solve this problem, I'm going to use a combination of a hashmap and a double-linked list data structure. The hashmap 
-allowed for instant retrieval of the node/key and the value; while double-linked list allowed fast operations on 
+To solve this problem, I decided to use a combination of a hashmap and a double-linked list data structure. The hashmap 
+allowed for instant retrieval of the node/key and the value; while double-linked list allowed fast operation on 
 the head/tail node, most recently used/least recently used respectively, and shuffling the most recently used node/head 
-to the back of the double-linked list. 
+to the tail of the double-linked list. 
 
 <h3> Time Complexity </h3>
 -get(): <b>O(1)</b>; only conditional check, no loops, thus constant time </br>   

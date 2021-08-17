@@ -25,22 +25,6 @@
 # For the current problem, you can consider the size of cache = 5.
 #
 # Here is some boiler plate code and some example test cases to get you started on this problem:
-class LRU_Cache(object):
-
-    def __init__(self, capacity):
-        # Initialize class variables
-        self.cache = {}             # using a dictionary to store key and value
-        self.capacity = capacity
-
-    def get(self, key):
-        # Retrieve item from provided key. Return -1 if nonexistent.
-        return -1
-
-    def set(self, key, value):
-        # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item.
-        return -1
-
-
 class DoubleNode:
     def __init__(self, value):
         self.value = value
@@ -52,32 +36,50 @@ class DoublyLinkedList:
         self.head = None        # Least recently used - tail of the DoubleLinkedList
         self.tail = None        # Most recently used - head of
 
-    def append(self, value):
-        if self.head is None:
-            self.head = DoubleNode(value)
-            self.tail = self.head
-            return
+    # def append(self, value):
+    #     if self.head is None:
+    #         self.head = DoubleNode(value)
+    #         self.tail = self.head
+    #         return
+    #
+    #     # Move to the tail (the last node)
+    #     self.tail.next = DoubleNode(value)
+    #     self.tail.next.previous = self.tail
+    #     self.tail = self.tail.next
+    #     return
 
-        # Move to the tail (the last node)
-        self.tail.next = DoubleNode(value)
-        self.tail.next.previous = self.tail
-        self.tail = self.tail.next
-        return
+class LRU_Cache(object):
+
+    def __init__(self, capacity):
+        # Initialize class variables
+        self.cache = {}             # using a hashmap to store key and value
+        self.capacity = capacity
+        self.head = None
+        self.tail = None
+
+    def get(self, key):
+        # Retrieve item from provided key. Return -1 if nonexistent.
+        return -1
+
+    def set(self, key, value):
+        # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item.
+        return -1
 
 
-our_cache = LRU_Cache(5)
 
-our_cache.set(1, 1)
-our_cache.set(2, 2)
-our_cache.set(3, 3)
-our_cache.set(4, 4)
-
-
-our_cache.get(1)       # returns 1
-our_cache.get(2)       # returns 2
-our_cache.get(9)      # returns -1 because 9 is not present in the cache
-
-our_cache.set(5, 5)
-our_cache.set(6, 6)
-
-our_cache.get(3)      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+# our_cache = LRU_Cache(5)
+#
+# our_cache.set(1, 1)
+# our_cache.set(2, 2)
+# our_cache.set(3, 3)
+# our_cache.set(4, 4)
+#
+#
+# our_cache.get(1)       # returns 1
+# our_cache.get(2)       # returns 2
+# our_cache.get(9)      # returns -1 because 9 is not present in the cache
+#
+# our_cache.set(5, 5)
+# our_cache.set(6, 6)
+#
+# our_cache.get(3)      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry

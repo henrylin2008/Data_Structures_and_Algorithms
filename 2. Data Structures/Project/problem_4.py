@@ -23,16 +23,6 @@ class Group(object):
         return self.name
 
 
-parent = Group("parent")
-child = Group("child")
-sub_child = Group("subchild")
-
-sub_child_user = "sub_child_user"
-sub_child.add_user(sub_child_user)
-
-child.add_group(sub_child)
-parent.add_group(child)
-
 # Write a function that provides an efficient look up of whether the user is in a group.
 
 def is_user_in_group(user, group):
@@ -43,4 +33,13 @@ def is_user_in_group(user, group):
       user(str): user name/id
       group(class:Group): group to check user membership against
     """
-    return None
+    if user is None or group is None:   # invalid input
+        print("Please provide a valid user or group")
+        return False
+
+    if user in group.users:
+        return True
+    for sub_group in group.get_groups():
+        return is_user_in_group(user, sub_group)
+
+    return False

@@ -43,3 +43,55 @@ def is_user_in_group(user, group):
         return is_user_in_group(user, sub_group)
 
     return False
+
+
+# Test cases
+# parent
+#   -child1
+#       -sub-child11
+#       -sub-child12
+#   -child2
+#       -sub-child21
+#       -sub-child22
+
+# Groups
+parent = Group("parent")
+child1 = Group("child1")
+child2 = Group("child2")
+sub_child1 = Group("sub-child1")
+sub_child2 = Group("sub-child2")
+
+# Users
+parent_user = "parent_user"
+child1_user = "child1_user"
+child2_user = "child2_user"
+sub_child1_user1 = "sub_child1_user1"
+sub_child1_user2 = "sub_child1_user2"
+sub_child2_user1 = "sub_child2_user1"
+sub_child2_user2 = "sub_child2_user2"
+
+parent.add_user(parent_user)
+parent.add_group(child1)
+parent.add_group(child2)
+
+child1.add_user(child1_user)
+child1.add_group(sub_child1)
+
+child2.add_user(child2_user)
+child2.add_group(sub_child2)
+
+child1.add_user(sub_child1_user1)
+child1.add_user(sub_child1_user2)
+
+child2.add_user(sub_child2_user1)
+child2.add_user(sub_child2_user2)
+
+
+print(is_user_in_group(parent_user, parent))  # Should return True
+print(is_user_in_group(sub_child1_user1, sub_child1))  # should return False
+print(is_user_in_group(sub_child1_user2, child1))   # should return True
+print(is_user_in_group(sub_child2_user1, child2))  # Should return True
+print(is_user_in_group(child1_user, child1))    # should return True
+print(is_user_in_group(child2_user, child1))    # should return False
+print(is_user_in_group(sub_child2_user1, parent))   # should return False
+print(is_user_in_group(sub_child2_user2, child1))   # should return False

@@ -7,7 +7,7 @@
 # Use your knowledge of linked lists and hashing to create a blockchain implementation.
 #
 # We can break the blockchain down into three main parts.
-# #
+#
 import hashlib
 import datetime
 
@@ -26,36 +26,67 @@ class Block:
         return sha.hexdigest()
 
     def __str__(self):
-        return (f'Timestamp: {self.timestamp} \n '
+        return (f'Timestamp: {self.timestamp} \n'
                 f'Data: {self.data} \n'
                 f'Hash: {self.hash} \n'
-                f'Previous Hash: {self.previous_hash} ')
+                f'Previous Hash: {self.previous_hash}')
 
 def get_utc_time():
     return datetime.datetime.now(datetime.timezone.utc).strftime("%m-%d-%y %H:%M:%S")
 
 class Node:
-    def __init__(self, node):
-        self.node = node
+    def __init__(self, block):
+        self.block = block
         self.next = None
+
+    def __str__(self):
+        return str(self.block)
 
 class BlockChain:
     def __init__(self):
         self.head = None
         self.tail = None
 
-    def add_block(self, data):
-        if self.head is None:
-            timestamp = get_utc_time()
-            data = data
+    def add_block(self, data=None):
+        timestamp = get_utc_time()
+        if self.head:
+            block = Block(timestamp, data, self.tail.block.hash)
+            node = Node(block)
+            self.tail.next = node
+            self.tail = node
+        else:
             block = Block(timestamp, data, 0)
             node = Node(block)
             self.head = node
             self.tail = node
-        else:
-            timestamp = get_utc_time()
-            data = data
-            block = Block(timestamp, data, self.tail.node.hash)
-            node = Node(block)
-            self.tail.next = node
-            self.tail = node
+        return
+
+    def __str__(self):
+        current_node = self.head
+        output = ""
+        while current_node:
+            output += str(current_node) + " \n\n"
+            current_node = current_node.next
+        return output
+
+
+# test cases
+# case 1:adding blocks
+block_chain = BlockChain()
+print("Blockchain 1:")
+block_chain.add_block("Block 0")      # adding first block
+block_chain.add_block("Block 1")     # adding second block
+block_chain.add_block("Block 2")      # adding third block
+print(block_chain)
+print("Blockchain 1 Head:")
+print(block_chain.head)
+print("")
+print("Blockchain 1 tail:")
+print(block_chain.tail)
+print("")
+
+# edge case - empty data
+print("Blockchain 2:")
+block_chain2 = BlockChain()
+block_chain2.add_block()
+print(block_chain2)

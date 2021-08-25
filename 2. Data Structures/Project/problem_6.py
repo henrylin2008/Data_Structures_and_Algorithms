@@ -52,16 +52,16 @@ class LinkedList:
         return size
 
 
-def union(llist_1, llist_2):
+def union(list_1, list_2):
     # Return the set of elements which are in A, in B, or in both A and B.
     union_set = set()
 
-    current_node = llist_1.head
+    current_node = list_1.head
     while current_node:
         union_set.add(current_node.value)
         current_node = current_node.next
 
-    current_node = llist_2.head
+    current_node = list_2.head
     while current_node:
         union_set.add(current_node.value)
         current_node = current_node.next
@@ -73,16 +73,16 @@ def union(llist_1, llist_2):
     return union_list
 
 
-def intersection(llist_1, llist_2):
+def intersection(list_1, list_2):
     # return the set of all objects that are members of both the sets A and B
     set1 = set()
-    current_node = llist_1.head
+    current_node = list_1.head
     while current_node:
         set1.add(current_node.value)
         current_node = current_node.next
 
     set2 = set()
-    current_node = llist_2.head
+    current_node = list_2.head
     while current_node:
         set2.add(current_node.value)
         current_node = current_node.next
@@ -104,15 +104,15 @@ element_2 = [6, 32, 4, 9, 6, 1, 11, 21, 1]
 
 for i in element_1:
     linked_list_1.append(i)
-
 for i in element_2:
     linked_list_2.append(i)
 
-print(union(linked_list_1, linked_list_2))
-print(intersection(linked_list_1, linked_list_2))
+print("Test case 1:")
+print("Union:", union(linked_list_1, linked_list_2))
+print("Intersection:", intersection(linked_list_1, linked_list_2))
+print("")
 
 # Test case 2
-
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
 
@@ -121,9 +121,59 @@ element_2 = [1, 7, 8, 9, 11, 21, 1]
 
 for i in element_1:
     linked_list_3.append(i)
-
 for i in element_2:
     linked_list_4.append(i)
 
-print(union(linked_list_3, linked_list_4))
-print(intersection(linked_list_3, linked_list_4))
+print("Test case 2: no common number")
+print("Union:", union(linked_list_3, linked_list_4))
+print("Intersection:", intersection(linked_list_3, linked_list_4))
+print("")
+
+# Test case 3   - A empty list
+linked_list_5 = LinkedList()
+linked_list_6 = LinkedList()
+
+element_1 = []
+element_2 = [1, 8, 9, 4, 5, 6, 4]
+for i in element_1:
+    linked_list_5.append(i)
+
+for i in element_2:
+    linked_list_6.append(i)
+
+print("Test case 3: an empty list")
+print("Union:", union(linked_list_5, linked_list_6))
+print("Intersection:", intersection(linked_list_5, linked_list_6))
+print("")
+
+# Test case 4 - 2 empty lists
+linked_list_7 = LinkedList()
+linked_list_8 = LinkedList()
+
+element_1 = []
+element_2 = []
+for i in element_1:
+    linked_list_7.append(i)
+for i in element_2:
+    linked_list_8.append(i)
+
+print("Test case 4: two empty lists")
+print("Union:", union(linked_list_7, linked_list_8))
+print("Intersection:", intersection(linked_list_7, linked_list_8))
+print("")
+
+# Test case 5 - same numbers
+linked_list_9 = LinkedList()
+linked_list_10 = LinkedList()
+
+element_1 = [1, 1, 1, 1]
+element_2 = [1, 1, 1, 1]
+for i in element_1:
+    linked_list_9.append(i)
+for i in element_2:
+    linked_list_10.append(i)
+
+print("Test case 5: same number on both lists")
+print("Union:", union(linked_list_9, linked_list_10))
+print("Intersection:", intersection(linked_list_9, linked_list_10))
+print("")

@@ -43,3 +43,15 @@ total_tries = 7
 start_range = 1
 end_range = 100
 guess_the_number(total_tries, start_range, end_range)
+
+# Time Complexity for linear search? O(n)
+
+
+# In summary:
+# -Binary search is a search algorithm where we find the position of a target value by comparing the middle value
+# with this target value.
+# -If the middle value is equal to the target value, then we have our solution (we have found the position of our
+# target value).
+# -If the target value comes before the middle value, we look for the target value in the left half.
+# -Otherwise, we look for the target value in the right half.
+# -We repeat this process as many times as needed, until we find the target value.

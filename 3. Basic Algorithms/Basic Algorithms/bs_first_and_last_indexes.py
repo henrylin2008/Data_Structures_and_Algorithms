@@ -56,3 +56,39 @@ def find_end_index(arr, number, start_index, end_index):
         return find_end_index(arr, number, mid_index + 1, end_index)
     else:
         return find_end_index(arr, number, start_index, mid_index - 1)
+
+
+def test_function(test_case):
+    input_list = test_case[0]
+    number = test_case[1]
+    solution = test_case[2]
+    output = first_and_last_index(input_list, number)
+    if output == solution:
+        print("Pass")
+    else:
+        print("Fail")
+
+
+input_list = [1]
+number = 1
+solution = [0, 0]
+test_case_1 = [input_list, number, solution]
+test_function(test_case_1)      # Pass
+
+input_list = [0, 1, 2, 3, 3, 3, 3, 4, 5, 6]
+number = 3
+solution = [3, 6]
+test_case_2 = [input_list, number, solution]
+test_function(test_case_2)      # Pass
+
+input_list = [0, 1, 2, 3, 4, 5]
+number = 5
+solution = [5, 5]
+test_case_3 = [input_list, number, solution]
+test_function(test_case_3)      # Pass
+
+input_list = [0, 1, 2, 3, 4, 5]
+number = 6
+solution = [-1, -1]
+test_case_4 = [input_list, number, solution]
+test_function(test_case_4)      # Pass

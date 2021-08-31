@@ -58,6 +58,76 @@ def is_word(word):
 test_words = ['ap', 'add']
 for word in test_words:
     if is_word(word):
+        print('"{}" is a word.'.format(word))   # "ap" not is a word.
+    else:
+        print('"{}" is not a word.'.format(word))   # "add" is a word.
+
+# The is_word starts with the root node, basic_trie. It traverses each character (char) in the word (word). If a
+# character doesn't exist while traversing, this means the word doesn't exist in the trie. Once all the characters
+# are traversed, the function returns the value of current_node['word_end'].
+#
+# You might notice the function is_word is similar to a binary search tree traversal. Since Trie is a tree,
+# it makes sense that we would use a type of tree traversal. Now that you've seen a basic example of a Trie,
+# let's build something more familiar.
+
+# Trie Using a Class
+
+# Just like most tree data structures, let's use classes to build the Trie. Implement two functions for the Trie
+# class below. Implement add to add a word to the Trie. Implement exists to return True if the word exist in the trie
+# and False if the word doesn't exist in the trie.
+class TrieNode(object):
+    def __init__(self):
+        self.is_word = False
+        self.children = {}
+
+
+class Trie(object):
+    def __init__(self):
+        self.root = TrieNode()
+
+    def add(self, word):
+        """
+        Add `word` to trie
+        """
+        current_node = self.root
+
+        for char in word:
+            if char not in current_node.children:
+                current_node.children[char] = TrieNode()
+            current_node = current_node.children[char]
+
+        current_node.is_word = True
+
+    def exists(self, word):
+        """
+        Check if word exists in trie
+        """
+        current_node = self.root
+
+        for char in word:
+            if char not in current_node.children:
+                return False
+            current_node = current_node.children[char]
+
+        return current_node.is_word
+
+
+word_list = ['apple', 'bear', 'goo', 'good', 'goodbye', 'goods', 'goodwill', 'gooses'  ,'zebra']
+word_trie = Trie()
+
+# Add words
+for word in word_list:
+    word_trie.add(word)
+
+# Test words
+test_words = ['bear', 'goo', 'good', 'goos']
+for word in test_words:
+    if word_trie.exists(word):
         print('"{}" is a word.'.format(word))
     else:
         print('"{}" is not a word.'.format(word))
+# "bear" is a word.
+# "goo" is a word.
+# "good" is a word.
+# "goos" is not a word.
+

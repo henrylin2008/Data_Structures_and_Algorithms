@@ -131,3 +131,47 @@ for word in test_words:
 # "good" is a word.
 # "goos" is not a word.
 
+# Trie using Defaultdict (Optional)
+# This is an optional section. Feel free to skip this and go to the next section of the classroom.
+#
+# A cleaner way to build a trie is with a Python default dictionary. The following TrieNod class is using
+# collections.defaultdict instead of a normal dictionary.
+
+import collections
+
+
+class TrieNode:
+    def __init__(self):
+        self.children = collections.defaultdict(TrieNode)
+        self.is_word = False
+
+# Implement the `add` and `exists` function below using the new `TrieNode` class.
+class Trie(object):
+    def __init__(self):
+        self.root = TrieNode()
+
+    def add(self, word):
+        """
+        Add `word` to trie
+        """
+        current_node = self.root
+
+        for char in word:
+            current_node = current_node.children[char]
+
+            current_node.is_word = True
+
+    def exists(self, word):
+        """
+        Check if word exists in trie
+        """
+        current_node = self.root
+
+        for char in word:
+            if char not in current_node.children:
+                return False
+
+            current_node = current_node.children[char]
+
+        return current_node.is_word
+

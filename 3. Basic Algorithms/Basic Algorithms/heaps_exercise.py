@@ -66,3 +66,79 @@
 # So, what underlying structure should we use to implement the priority queue such that it will be as efficient as
 # possible? Let's look at some different structures and consider the pros and cons.
 
+# Arrays
+
+# Earlier, we saw that one way to implement a queue was by using an array. We could do a similar thing for priority
+# queues. We could use the array to store our data.
+#
+# Insertion in an array is very fast. Unless the array is full, we can do it in O(1) time.
+#
+# Note: When the array is full, we will simply create a new array and copy all the elements from our old array to new
+# array. It's exactly similar to what we do for our queue's implementation using arrays.
+#
+# What about removal? We always want to remove the smallest or highest priority data from the array, depending on if
+# this is a max-heap or min-heap. In the worst case, we will have to search the entire array, which will take O(n)
+# time. Thus, to remove the element, the time complexity would be O(n).
+#
+# This also creates an additional problem for us. The index from which we removed the element is now empty. We cannot
+# leave empty indices in our array. Over the course of operations, we will be wasting a lot of space if we did that.
+#
+# Therefore, insertion no longer happens in O(1) time. Rather, every time we insert, we will have to look for these
+# empty indices and put our new element in the first empty index we find. In the worst case, this also takes O(n)
+# time. Therefore, our time complexity with arrays (for both insertion and removal) would be O(n).
+
+# LinkedList
+# Insertion is very easy in a linked list. If we maintain a variable to keep track of the tail of the
+# linked list, then we can simply add a new node at this location. Thus, insertion takes O(1) time.
+#
+# For removal, we will have to traverse the entire list and find the smallest element, which will require O(n) time.
+#
+# Note that with linked lists, unlike arrays, we do not have to worry about empty indices.
+#
+# A linked linked certainly seems to be a better option than an array. Although they have the same time complexity
+# for removal, the time complexity for insertion is better.
+#
+# HashMap
+# The same problem lies in HashMap as well. We can insert in O(1) time. Although, we can remove an element from a
+# HashMap in O(1) time but we have to first search for the smallest element in the map. This will again take O(n)
+# time. Therefore, the time complexity of remove is O(n) for hashmaps.
+
+# Binary Search Trees
+# Binary Search Trees are laid out according to the value of the node that we want to insert. All elements greater
+# than the root go to the right of the root, and all elements smaller than the root go to the left of the root.
+#
+# If we assume that our Binary Search tree is balanced, insertion would require O(h) time in the worst case.
+# Similarly, removal would also require O(h) time. Here h is the height of the binary search tree.
+#                   4
+#                 /    \
+#               2        7
+#             /   \     /  \
+#            1     3   5    8
+
+# A Binary Tree is called a Balanced Binary Tree when the difference between the heights of it's left subtree and
+# right subtree do not differ by more than one. Additionally, to be balanced, all the subtrees of the binary tree
+# must also be balanced.
+#
+# For a balanced tree, we can safely approximate the height of the tree h to log(n). Thus, both insertion and removal
+# require O(log(n)) time in a binary search tree.
+#
+# However, in the worst case, our binary search tree might just be a sequential list of nodes (stretching to the
+# right or to the left). Consider the following tree:
+#       1
+#          \
+#            2
+#              \
+#                3
+#                  \
+#                    4
+
+# In such a scenario the binary search tree effectively turns into a linked list. In this case, the time complexity
+# would be O(n)
+#
+# To avoid this situation, we would need a self-balancing tree which include additional complexity.
+#
+# We could use any of the above data structures to implement our priority queue—and they would work, in the sense
+# that they would exhibit the outward behavior we expect in a priority queue.
+#
+# However, none of them acheived our goal of having  𝑂(1)  time complexity for both insert and remove. To do that,
+# we will need to explore something new: A heap.

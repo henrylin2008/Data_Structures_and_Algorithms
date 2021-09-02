@@ -116,7 +116,7 @@ class Node:
             return False
         return self.freq == other.freq
 
-    def __gt__(self, other):  # equal function
+    def __gt__(self, other):  # greater than function
         if other is None:
             return False
         if not isinstance(other, Node):
@@ -208,19 +208,28 @@ class HuffmanCoding:
 
 
 if __name__ == "__main__":
-    codes = {}
+    huffman_coding = HuffmanCoding()
+    count = 0
+    test_sentences = ["The bird is the word", "", "a", "aaaaaa", "AAaaCCcc", "12342345"]
+    sentence_desc = ["a regular sentence", "an empty string", "a single letter", "duplicate letters",
+                     "duplicate upper and lower letters", "numbers"]
 
-    a_great_sentence = "The bird is the word"
+    for sentence in test_sentences:
+        print(f"----- Test case {count + 1}: {sentence_desc[count]} -----\n")
 
-    print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
-    print("The content of the data is: {}\n".format(a_great_sentence))
+        print(f"The size of the data is: {sys.getsizeof(sentence)}")
+        print(f"The content of the data is: {sentence}\n")
 
-    encoded_data, tree = huffman_encoding(a_great_sentence)
+        encoded_data, tree = huffman_coding.huffman_encoding(sentence)
+        if encoded_data is not None and tree is not None:
+            print(f"The size of the encoded data is: {sys.getsizeof(int(encoded_data, base=2))}")
+            print(f"The content of the encoded data is: {encoded_data}\n")
 
-    print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
-    print("The content of the encoded data is: {}\n".format(encoded_data))
+            decoded_data = huffman_coding.huffman_decoding(encoded_data, tree)
+            print(f"The size of the decoded data is: {sys.getsizeof(decoded_data)}")
+            print(f"The content of the encoded data is: {decoded_data}\n")
 
-    decoded_data = huffman_decoding(encoded_data, tree)
+        else:
+            print("Invalid input or an empty string\n")
 
-    print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
-    print("The content of the encoded data is: {}\n".format(decoded_data))
+        count += 1

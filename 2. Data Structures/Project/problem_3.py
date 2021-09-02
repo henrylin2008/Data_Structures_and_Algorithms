@@ -92,14 +92,119 @@
 # to create the sizing schemas to present a summary.
 
 import sys
+import heapq
+from collections import defaultdict
+
+class Node:
+    def __init__(self, char, freq, left_child=None, right_child=None):
+        self.char = char
+        self.freq = freq
+        self.left = left_child
+        self.right = right_child
+
+    def __lt__(self, other):  # less than function
+        if other is None:
+            return False
+        if not isinstance(other, Node):
+            return False
+        return self.freq < other.freq
+
+    def __eq__(self, other):  # equal function
+        if other is None:
+            return False
+        if not isinstance(other, Node):
+            return False
+        return self.freq == other.freq
+
+    def __gt__(self, other):  # equal function
+        if other is None:
+            return False
+        if not isinstance(other, Node):
+            return False
+        return self.freq > other.freq
 
 
-def huffman_encoding(data):
-    pass
+class HuffmanCoding:
 
+    def __init__(self):
+        self.min_heap = []
+        self.codes = {}
 
-def huffman_decoding(data, tree):
-    pass
+    def create_codes(self, tree):  # create codes from the tree
+        if tree.left is None and tree.right is None:
+            return {tree.char: "0"}
+        return self.create_codes_recursive(tree, "")
+
+    def create_codes_recursive(self, root, current_node):
+        if root is None:
+            return {}
+        if root.char is not None:
+            self.codes[root.char] = current_node
+
+        left_codes = self.create_codes_recursive(root.left, current_node + "0")
+        right_codes = self.create_codes_recursive(root.right, current_node + "1")
+        self.codes.update(left_codes)
+        self.codes.update(right_codes)
+        return self.codes
+
+    def get_encoded_text(self, text):
+        encoded_text = ""
+        for char in text:
+            encoded_text += self.codes[char]
+        return encoded_text
+
+    def huffman_encoding(self, data):
+        # Edge cases
+        if data == "" or data is None:
+            return "", None
+
+        # Create a dictionary to store characters frequency
+        frequency_dict = defaultdict()
+        for char in data:
+            if char in frequency_dict:
+                frequency_dict[char] += 1
+            else:
+                frequency_dict[char] = 1
+
+        # build a min heap queue, ordered from the smallest to the largest
+        for key in frequency_dict:
+            current_node = Node(key, frequency_dict[key])
+            heapq.heappush(self.min_heap, current_node)
+
+        # Build Huffman tree, merging 2 min nodes recursively
+        while len(self.min_heap) > 1:
+            min_node1 = heapq.heappop(self.min_heap)
+            min_node2 = heapq.heappop(self.min_heap)
+            merged_node = Node(None, min_node1.freq + min_node2.freq)  # merging of the 2 min nodes
+            merged_node.left = min_node1  # left child
+            merged_node.right = min_node2  # right child
+            heapq.heappush(self.min_heap, merged_node)  # insert new node into the min_heap
+        if len(self.min_heap) == 1:              # edge case when only one node left
+            current_node = heapq.heappop(self.min_heap)
+            new_node = Node(None, current_node.freq)
+            new_node.left = current_node
+            heapq.heappush(self.min_heap, new_node)
+
+        tree = heapq.heappop(self.min_heap)
+        codes = self.create_codes(tree)
+        encoded_text = self.get_encoded_text(data)
+        return encoded_text, tree
+
+    def huffman_decoding(self, data, tree):
+        decoded_text = ""
+        if data == "":
+            return decoded_text
+
+        tree_node = tree
+        for char in data:
+            if char == '0':
+                tree_node = tree_node.left
+            elif char == '1':
+                tree_node = tree_node.right
+            if tree_node.char is not None:
+                decoded_text += tree_node.char
+                tree_node = tree
+        return decoded_text
 
 
 if __name__ == "__main__":

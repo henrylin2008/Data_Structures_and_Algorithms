@@ -1,5 +1,5 @@
 We've been asked to use a linked list for this problem; the add_block method runs in constant time, as it takes the 
-input data and added to the end of the linked list, while the space complexity will be O(n), as the space increased with 
+input data and added to the end of the linked list, while the space complexity will be O(n), as the space increase when 
 the size getting larger. 
 
 <h3> Time Complexity: </h3> 

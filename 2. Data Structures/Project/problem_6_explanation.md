@@ -5,4 +5,4 @@ constant that leaves the result as O(n)
 <h3> Time Complexity: </h3><b>O(n);</b> it requires to loop through both given lists
 
 <h3> Space Complexity: </h3>
-<b>O(n);</b> it requires to add up all of given items in the both lists 
+<b>O(n);</b> it requires to add up all of the given items in the both lists 

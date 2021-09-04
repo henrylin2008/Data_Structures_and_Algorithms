@@ -54,6 +54,13 @@ class LRU_Cache:
 
     # O(1) time | O(n) space
     def set(self, key, value):
+        # edge cases
+        if key is None or value is None:
+            return
+        elif self.capacity <= 0:
+            print("Invalid capacity, please enter a valid capacity!")
+            return
+
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item.
         if self.current_size == self.capacity:  # when the capacity is reached
             lru_node = self.list_tail       # lru node
@@ -91,8 +98,8 @@ class LRU_Cache:
             self.list_head = node
 
 
-# Test case
-
+# Test case: regular
+print("Test 1:")
 our_cache = LRU_Cache(5)
 our_cache.set(1, 1)
 our_cache.set(2, 2)
@@ -105,5 +112,24 @@ print(our_cache.get(9))     # returns -1 because 9 is not present in the cache
 
 our_cache.set(5, 5)
 our_cache.set(6, 6)
+print(our_cache.get(3))     # returns -1 because the cache reached the capacity and 3 was the least recently used entry
+print("")
 
-print(our_cache.get(3))     # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+# Edge case: 0
+print("Edge case: 0")
+test2 = LRU_Cache(0)
+test2.set(1, 1)
+test2.set(2, 2)
+
+print(test2.get(1))
+print(test2.get(2))
+print("")
+
+# Edge case: negative
+print("Edge case: negative")
+test3 = LRU_Cache(-3)
+test3.set(1, 1)
+test3.set(2, 2)
+
+print(test3.get(1))
+print(test3.get(2))

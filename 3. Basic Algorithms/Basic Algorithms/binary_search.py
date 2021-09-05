@@ -44,8 +44,23 @@ start_range = 1
 end_range = 100
 guess_the_number(total_tries, start_range, end_range)
 
+
+# Linear Search:
+# We have no idea about the order of the words, so we simply have to flip through the pages, one by one,
+# until we find the word we are looking for.
+
+# What would the time complexity be for linear search?
+# (Think about the worst case scenario, where the word you're looking for is on the last page of the dictionary.)
+# O(n)
+
 # Time Complexity for linear search? O(n)
 
+
+# You're going to make your first guess about which page the word might be on. Then you'll open the dictionary and
+# take a look to see if you're right.
+#
+# Which page should you look at first? (Assuming you want to find the word as quickly as possible.)
+# The middle page (halfway through the dictionary)
 
 # In summary:
 # -Binary search is a search algorithm where we find the position of a target value by comparing the middle value

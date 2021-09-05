@@ -85,8 +85,13 @@ print("Blockchain 1 tail:")
 print(block_chain.tail)
 print("")
 
-# edge case - empty data
+# edge case - empty block
 print("Blockchain 2:")
 block_chain2 = BlockChain()
 block_chain2.add_block()
 print(block_chain2)
+
+# edge case - empty blockchain
+print("Blockchain 3:")
+bc3 = BlockChain()
+print(bc3)

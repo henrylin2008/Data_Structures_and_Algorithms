@@ -53,3 +53,62 @@ print(find_first(7, multiple1))  # Should return 3
 print(find_first(9, multiple1))  # Should return None
 
 
+# Contains
+# The second variation is a function that returns a boolean value indicating whether an element is present,
+# but with no information about the location of that element.
+#
+# For example:
+#
+# letters = ['a', 'c', 'd', 'f', 'g']
+# print(contains('a', letters)) ## True
+# print(contains('b', letters)) ## False
+
+# There are a few different ways to approach this, so try it out, and we'll share two solutions after.
+# Spoiler - Solution below:
+# Here are two solutions we came up with:
+#
+# One option is just to wrap binary search:
+#
+# def contains(target, source):
+#     return recursive_binary_search(target, source) is not None
+# Another choice is to build a simpler binary search directly into the function:
+#
+# def contains(target, source):
+#     # Since we don't need to keep track of the index, we can remove the `left` parameter.
+#     if len(source) == 0:
+#         return False
+#     center = (len(source)-1) // 2
+#     if source[center] == target:
+#         return True
+#     elif source[center] < target:
+#         return contains(target, source[center+1:])
+#     else:
+#         return contains(target, source[:center])
+# Try these functions out below:
+
+# Loose wrapper for recursive binary search, returning True if the index is found and False if not
+def contains(target, source):
+    return recursive_binary_search(target, source) is not None
+
+
+letters = ['a', 'c', 'd', 'f', 'g']
+print(contains('a', letters))  # True
+print(contains('b', letters))  # False
+
+
+# Native implementation of binary search in the `contains` function.
+def contains(target, source):
+    if len(source) == 0:
+        return False
+    center = (len(source) - 1) // 2
+    if source[center] == target:
+        return True
+    elif source[center] < target:
+        return contains(target, source[center + 1:])
+    else:
+        return contains(target, source[:center])
+
+
+letters = ['a', 'c', 'd', 'f', 'g']
+print(contains('c', letters))  # True
+print(contains('b', letters))  # False

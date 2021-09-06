@@ -4,15 +4,15 @@
 #
 # Here is a reminder of how the algorithm works:
 #
-# Find the center of the list (try setting an upper and lower bound to find the center)
-# Check to see if the element at the center is your target.
-# If it is, return the index.
-# If not, is the target greater or less than that element?
-# If greater, move the lower bound to just above the current center
-# If less, move the upper bound to just below the current center
-
-# Repeat steps 1-6 until you find the target or until the bounds are the same or cross (the upper bound is less than
+# 1. Find the center of the list (try setting an upper and lower bound to find the center)
+# 2. Check to see if the element at the center is your target.
+# 3. If it is, return the index.
+# 4. If not, is the target greater or less than that element?
+# 5. If greater, move the lower bound to just above the current center
+# 6. If less, move the upper bound to just below the current center
+# 7. Repeat steps 1-6 until you find the target or until the bounds are the same or cross (the upper bound is less than
 # the lower bound).
+#
 # Problem statement:
 # Given a sorted array of integers, and a target value, find the index of the
 # target value in the array. If the target value is not present in the array, return -1.
@@ -28,13 +28,13 @@ def binary_search(array, target):
 
         mid_element = array[mid_index]
 
-        if target == mid_element:  # we have found the element
+        if target == mid_element:          # we have found the element
             return mid_index
 
-        elif target < mid_element:  # the target is less than mid element
-            end_index = mid_index - 1  # we will only search in the left half
+        elif target < mid_element:         # the target is less than mid element
+            end_index = mid_index - 1      # we will only search in the left half
 
-        else:  # the target is greater than mid element
+        else:                              # the target is greater than mid element
             start_index = mid_element + 1  # we will search only in the right half
 
     return -1
@@ -84,8 +84,8 @@ def binary_search_recursive_soln(array, target, start_index, end_index):
         return binary_search_recursive_soln(array, target, mid_index + 1, end_index)
 
 def test_function(test_case):
-    answer = binary_search_recursive(test_case[0], test_case[1])
-    if answer == test_case[2]:
+    answer = binary_search_recursive(test_case[0], test_case[1], test_case[2], test_case[3])
+    if answer == test_case[1]:
         print("Pass!")
     else:
         print("Fail!")
@@ -93,6 +93,7 @@ def test_function(test_case):
 
 array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 target = 4
-index = 4
-test_case = [array, target, index]
+start_index = 0
+end_index = 4
+test_case = [array, target, start_index, end_index]
 test_function(test_case)

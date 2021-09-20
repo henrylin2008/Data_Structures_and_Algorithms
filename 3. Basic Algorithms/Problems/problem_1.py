@@ -45,9 +45,12 @@ def sqrt_recursive(target, start, end):
 
 
 # Test cases
+print("Normal Cases:")
 print("Pass" if (3 == sqrt(9)) else "Fail")
-print("Pass" if (0 == sqrt(0)) else "Fail")
 print("Pass" if (4 == sqrt(16)) else "Fail")
 print("Pass" if (1 == sqrt(1)) else "Fail")
 print("Pass" if (5 == sqrt(27)) else "Fail")
+print("")
+print("Edge Cases:")
+print("Pass" if (0 == sqrt(0)) else "Fail")
 print("Pass" if (sqrt(-1) is None) else "Fail")

@@ -48,14 +48,15 @@ def rearrange_digits(input_list):
     even_idx_value = 0
     odd_idx_value = 0
 
-    for idx, value in enumerate(sorted_list):  #
-        if idx % 2 == 0:  # even indexes
-            even_idx_value = even_idx_value * 10 + value    # add new value to the end of the existing even_idx_value
-        else:  # odd indexes
+    for idx, value in enumerate(sorted_list):
+        if idx % 2 == 0:  # reminder on the even index/es
+            even_idx_value = even_idx_value * 10 + value  # add new value to the end of the existing even_idx_value
+        else:  # reminder on the odd index/es
             odd_idx_value = odd_idx_value * 10 + value
     return even_idx_value, odd_idx_value
 
-def t_fn(test_case):
+
+def test_function(test_case):
     output = rearrange_digits(test_case[0])
     solution = test_case[1]
     if sum(output) == sum(solution):
@@ -65,7 +66,23 @@ def t_fn(test_case):
 
 
 print("Test Cases:")
-print("Input: [1, 2, 3, 4, 5]; Output: [542, 31]: ", end='')
-t_fn([[1, 2, 3, 4, 5], [542, 31]])
-print("Input: [4, 6, 2, 5, 9, 8]; Output: [964, 852]: ", end='')
-t_fn([[4, 6, 2, 5, 9, 8], [964, 852]])
+print("Input \t\t\t   |   Output  |   Result")
+print("[1, 2, 3, 4, 5] \t [542, 31] \t", end='\t')
+test_function([[1, 2, 3, 4, 5], [542, 31]])
+print("[4, 6, 2, 5, 9, 8]   [964, 852] ", end='\t')
+test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
+print("[1, 0] \t\t\t\t [1, 0] \t", end='\t')
+test_function([[1, 0], [1, 0]])
+print("[1, 1, 1] \t\t\t [11, 1] \t", end='\t')
+test_function([[1, 1, 1], [11, 1]])
+print("[2, 3, 0, 7] \t\t [72, 30] \t", end='\t')
+test_function([[2, 3, 0, 7], [72, 30]])
+
+print("\nEdge Cases:")
+print("Input \t   |   Output  |   Result")
+print("[] \t\t\t  [] \t\t", end='\t')
+test_function([[], []])
+print("[1] \t\t  [1, 0] \t", end='\t')
+test_function([[1], [1, 0]])
+print("[0, 0] \t\t  [0, 0] \t", end='\t')
+test_function([[0, 0], [0, 0]])

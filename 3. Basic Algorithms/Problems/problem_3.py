@@ -86,3 +86,19 @@ print("[1] \t\t  [1, 0] \t", end='\t')
 test_function([[1], [1, 0]])
 print("[0, 0] \t\t  [0, 0] \t", end='\t')
 test_function([[0, 0], [0, 0]])
+
+
+# Output
+# Test Cases:
+# Input 			   |   Output  |   Result
+# [1, 2, 3, 4, 5] 	      [542, 31] 	Pass
+# [4, 6, 2, 5, 9, 8]      [964, 852] 	Pass
+# [1, 0] 				  [1, 0] 		Pass
+# [1, 1, 1] 			  [11, 1] 		Pass
+# [2, 3, 0, 7] 		      [72, 30] 		Pass
+#
+# Edge Cases:
+# Input 	   |   Output  |   Result
+# [] 			  [] 			Pass
+# [1] 		      [1, 0] 		Pass
+# [0, 0] 		  [0, 0] 		Pass

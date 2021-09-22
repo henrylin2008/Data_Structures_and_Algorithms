@@ -51,7 +51,7 @@ def linear_search(input_list, number):
             return index
     return -1
 
-def t_fn(case):
+def test_function(case):
     input_list = case[0]
     number = case[1]
     if linear_search(input_list, number) == rotated_array_search(input_list, number):
@@ -62,16 +62,30 @@ def t_fn(case):
 
 # Test case
 print("Regular Cases:")
-t_fn([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])
-t_fn([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
-t_fn([[6, 7, 8, 1, 2, 3, 4], 8])
-t_fn([[6, 7, 8, 1, 2, 3, 4], 1])
-t_fn([[6, 7, 8, 1, 2, 3, 4], 10])
-t_fn([[7, 8, 1, 2, 3, 4, 6], 5])
-t_fn([[7, 8, 1, 2, 3, 4, 6], 4])
+test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])
+test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
+test_function([[6, 7, 8, 1, 2, 3, 4], 8])
+test_function([[6, 7, 8, 1, 2, 3, 4], 1])
+test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+test_function([[7, 8, 1, 2, 3, 4, 6], 5])
+test_function([[7, 8, 1, 2, 3, 4, 6], 4])
 print("")
 # edge cases
 print("Edge cases:")
-t_fn([[], -1])
-t_fn([[6], 0])
-t_fn([[], 2])
+test_function([[], -1])
+test_function([[6], 0])
+test_function([[], 2])
+
+# Regular Cases:
+# Pass
+# Pass
+# Pass
+# Pass
+# Pass
+# Pass
+# Pass
+#
+# Edge cases:
+# Pass
+# Pass
+# Pass

@@ -28,10 +28,10 @@
 # We can also simplify our RouteTrie a bit by excluding the suffixes method and the endOfWord property on
 # RouteTrieNodes. We really just need to insert and find nodes, and if a RouteTrieNode is not a leaf node,
 # it won't have a handler which is fine.
-
-# A RouteTrie will store our routes and their associated handlers
 from collections import defaultdict
 
+
+# A RouteTrie will store our routes and their associated handlers
 class RouteTrie:
     def __init__(self, root_handler):
         # Initialize the trie with an root node and a handler, this is the root path or home page node
@@ -73,3 +73,38 @@ class RouteTrieNode:
         if path not in self.children:
             self.children[path] = RouteTrieNode()
 
+# Next we need to implement the actual Router. The router will initialize itself with a RouteTrie for holding routes
+# and associated handlers. It should also support adding a handler by path and looking up a handler by path. All of
+# these operations will be delegated to the RouteTrie.
+#
+# Hint: the RouteTrie stores handlers under path parts, so remember to split your path around the '/' character
+#
+# Bonus Points: Add a not found handler to your Router which is returned whenever a path is not found in the Trie.
+#
+# More Bonus Points: Handle trailing slashes! A request for '/about' or '/about/' are probably looking for the same
+# page. Requests for '' or '/' are probably looking for the root handler. Handle these edge cases in your Router.
+
+# The Router class will wrap the Trie and handle
+class Router:
+    def __init__(self):
+        # Create a new RouteTrie for holding our routes
+        # You could also add a handler for 404 page not found responses as well!
+
+
+    def add_handler(self):
+        # Add a handler for a path
+        # You will need to split the path and pass the pass parts
+        # as a list to the RouteTrie
+
+    def lookup(self):
+        # lookup path (by parts) and return the associated handler
+        # you can return None if it's not found or
+        # return the "not found" handler if you added one
+        # bonus points if a path works with and without a trailing slash
+        # e.g. /about and /about/ both return the /about handler
+
+
+    def split_path(self):
+        # you need to split the path into parts for
+        # both the add_handler and lookup functions,
+        # so it should be placed in a function here

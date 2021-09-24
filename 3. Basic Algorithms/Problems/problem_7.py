@@ -86,25 +86,37 @@ class RouteTrieNode:
 
 # The Router class will wrap the Trie and handle
 class Router:
-    def __init__(self):
+    def __init__(self, root_handler, not_found_handler):
         # Create a new RouteTrie for holding our routes
         # You could also add a handler for 404 page not found responses as well!
+        self.route = RouteTrie(root_handler)
+        self.not_found_handler = not_found_handler
 
-
-    def add_handler(self):
+    def add_handler(self, path, handler):
         # Add a handler for a path
         # You will need to split the path and pass the pass parts
         # as a list to the RouteTrie
+        split_path = self.split_path(path)
+        self.route.insert(split_path, handler)
 
-    def lookup(self):
+    def lookup(self, path):
         # lookup path (by parts) and return the associated handler
         # you can return None if it's not found or
         # return the "not found" handler if you added one
         # bonus points if a path works with and without a trailing slash
         # e.g. /about and /about/ both return the /about handler
+        split_path = self.split_path(path)
+        route_handler = self.route.find(split_path)
 
+        if not route_handler:
+            return self.not_found_handler
+        else:
+            return route_handler
 
-    def split_path(self):
+    def split_path(self, path):
         # you need to split the path into parts for
         # both the add_handler and lookup functions,
         # so it should be placed in a function here
+        if not path:
+            return []
+        return path.strip('/').split('/')

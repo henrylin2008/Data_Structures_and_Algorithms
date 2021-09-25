@@ -139,6 +139,7 @@ router = Router("root handler", "not found handler")  # remove the 'not found ha
 router.add_handler("/home/about", "about handler")  # add a route
 
 # some lookups with the expected output
+print("'':", router.lookup(""))
 print("/:", router.lookup("/"))  # should print 'root handler'
 print("/home:", router.lookup("/home"))  # should print 'not found handler' or None if you did not implement one
 print("/home/about:", router.lookup("/home/about"))  # should print 'about handler'

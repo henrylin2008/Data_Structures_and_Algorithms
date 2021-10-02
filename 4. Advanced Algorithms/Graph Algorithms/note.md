@@ -14,3 +14,14 @@ Time Complexity:<b> O(|E| + |V|) </b>
 
 Time Complexity:<b> O(|E| + |V|) </b> 
 - E: number of edges; V: number of vertices 
+
+
+### Dijkstra's algorithm: 
+- Time: <b>O(|v|^2)</b>; In worst case, visit every node once or twice, every time we visit, we need to find the minimum element 
+
+- Optimal Time: <b> O(|E| + |V|log(|V|)) </b>
+
+-note: <br>
+Dijkstra's algorithm can solve the single-source shortest path only when the edges have non-negative weights. In other words, Dijkstra's algorithm can not work if: <br>
+1. There are edges with negative weights.
+2. There are negative cycles (in directed graphs). A negative cycle is one that has negative weights. It can reduce the cost of the "shortest path" every time the cycle is traversed. However, the algorithm works fine with positive cycles.

@@ -1,3 +1,3 @@
-Knapsack problem: 
-Naive's runtime: O(2^n); n: number of objects
-Smarter runtime: O(nW); n: number of elements; W: weight limit 
+Knapsack problem: <br>
+-Naive runtime: <b>O(2^n)</b>; n: number of objects <br>
+-Smarter runtime: <b>O(nW)</b>; n: number of elements; W: weight limit 
